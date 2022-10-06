@@ -10,7 +10,7 @@
 
 * {
     margin: 0;
-    padding: 50px;
+    padding: 0;
     font-size: 150px;
 }
 
@@ -20,28 +20,41 @@
     text-align: center;
 }
 
+#maintitle {
+  font-size: 40px;
+  animation-name: hor-movement, ver-movement;
+  animation-duration: 3.141s, 3.614s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+#maintitle span {
+  font-size: 40px;
+}
+
 @keyframes hor-movement {
     from {
-      margin-left: 0%;
+      margin-left: 10%;
     }
     to {
-      margin-left: 100%;
+      margin-left: 90%;
     }
   }
   
-  @keyframes ver-movement {
-    from {
-      margin-top: 0%;
-    }
-    to {
-      margin-top: 100%;
-    }
+@keyframes ver-movement {
+  from {
+    margin-top: 10%;
+  }
+  to {
+    margin-top: 40%;
+  }
 }
 
 .image {
     position: inherit;
     animation-name: hor-movement, ver-movement;
-    animation-duration: 3.141s, 1.414s;
+    animation-duration: 1.141s, 1.414s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: linear;

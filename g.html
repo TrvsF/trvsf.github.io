@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trv$F</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div id="georgia">georgia <span style="color: red;">lessthan3</span> travis</div>
+
+    <div class="bounds">
+    <img class="image" src="becarefull.jpg" width="250" height="250"> </img>
+    </div>
+    
+    <script>
+        let flag = false;
+        var intervalID = window.setInterval(changeFont, 350);
+
+        function changeFont() {
+            flag = !flag;
+            if (flag)
+            {
+                document.getElementById("georgia").style.fontFamily = "henryred";
+            }
+            else
+            {
+                document.getElementById("georgia").style.fontFamily = "henryblue";
+            }
+            
+        }
+    </script>
+</body>
+</html>

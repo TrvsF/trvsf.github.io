@@ -11,28 +11,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div id="georgia">travis</div>
-
-    <div class="bounds">
-    <img class="image" src="becarefull.jpg" width="250" height="250"> </img>
+    <div id="wholething">
+        <div id="maintitle">tra<span style="color: red;">vis</div>
     </div>
     
     <script>
-        let flag = false;
-        var intervalID = window.setInterval(changeFont, 350);
+        var number = 0;
+        var font = window.setInterval(changeFont, 1500);
+
+        var bgone = window.setInterval(changeBg, 3141);
+        var bgtwo = window.setInterval(changeBg, 3614);
 
         function changeFont() {
-            flag = !flag;
-            if (flag)
-            {
-                document.getElementById("georgia").style.fontFamily = "henryred";
+            let n = number % 6;
+
+            switch(n) {
+                case 0:
+                    document.getElementById("maintitle").style.fontFamily = "henryred";
+                    break;
+                case 1:
+                    document.getElementById("maintitle").style.fontFamily = "'Brush Script MT', cursive";
+                    break;
+                case 2:
+                    document.getElementById("maintitle").style.fontFamily = "Arial, sans-serif";
+                    break;  
+                case 3:
+                    document.getElementById("maintitle").style.fontFamily = "'Courier New', monospace";
+                    break;
+                case 4:
+                    document.getElementById("maintitle").style.fontFamily = "'Times New Roman', serif";
+                    break;
+                case 5:
+                    document.getElementById("maintitle").style.fontFamily = "Garamond, serif";
+                    break; 
             }
-            else
-            {
-                document.getElementById("georgia").style.fontFamily = "henryblue";
+
+            number++;
+        }
+
+        function changeBg() {
+            let n = number % 6;
+
+            switch(n) {
+                case 0:
+                    document.body.style.backgroundColor = "black";
+                    break;
+                case 1:
+                    document.body.style.backgroundColor = "blue";
+                    break;
+                case 2:
+                    document.body.style.backgroundColor = "red";
+                    break;  
+                case 3:
+                    document.body.style.backgroundColor = "white";
+                    break;
+                case 4:
+                    document.body.style.backgroundColor = "green";
+                    break;
+                case 5:
+                    document.body.style.backgroundColor = "purple";
+                    break; 
             }
             
+            number++;
         }
+
     </script>
 </body>
 </html>
