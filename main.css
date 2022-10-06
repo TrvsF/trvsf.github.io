@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "henryblue";
+    src: url("./HenryBlue-Regular.ttf");
+}
+
+@font-face {
+    font-family: "henryred";
+    src: url("./HenryRed-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 50px;
+    font-size: 150px;
+}
+
+#georgia {
+    font-family: "henryblue";
+    color: greenyellow;
+    text-align: center;
+}
+
+@keyframes hor-movement {
+    from {
+      margin-left: 0%;
+    }
+    to {
+      margin-left: 100%;
+    }
+  }
+  
+  @keyframes ver-movement {
+    from {
+      margin-top: 0%;
+    }
+    to {
+      margin-top: 100%;
+    }
+}
+
+.image {
+    position: inherit;
+    animation-name: hor-movement, ver-movement;
+    animation-duration: 3.141s, 1.414s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+.bounds {
+    width: 400px;
+    height: 600px;
+}
