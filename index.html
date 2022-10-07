@@ -12,8 +12,8 @@
 <body>
     <div id="nav">
         <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
-        <a id="navel" href="index.html" style="text-decoration: none;">projects</a>
-        <a id="navel" href="index.html" style="text-decoration: none;">awesome</a>
+        <a id="navel" href="https://github.com/trvsf" style="text-decoration: none;">github</a>
+        <a id="navel" href="index.html" style="text-decoration: none;">b(l)og</a>
     </div>
 
     <div id="darkbutton">
@@ -22,7 +22,10 @@
 
     <a id = "g" href="g.html" style="color: white; margin-top: 15%;">canoodle</a>
 
+    <a id="deeper" href="somewhereelse.html" style="text-decoration: none;">ḑ̻̫̝̣͇̰ȩ̛̫͇̦̩͎̲͙͡ę̴̯͇̰͕̹͕͓́ṕ̶̞̭̪͝e̼̼̯̪̹̜r̴͏͓̦͚͔̹</a>
+
     <div id="maintitle">tra<span id="vis" style="color: red;">vis</span><span style="color: white;">able</span></div>
+    
 
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
 
@@ -30,14 +33,17 @@
         let darkflag = true;
         function darkMode() {
             if (darkflag) {
+                // dark
                 document.getElementById("darkmodebutton").innerHTML = "l";
                 document.getElementById("darkmodebutton").style.color = "white";
                 document.getElementById("navel").style.color = "white";
+                document.getElementById("g").style.color = "black";
                 document.body.style.backgroundColor = "black";
             } else {
                 document.getElementById("darkmodebutton").innerHTML = "d";
                 document.getElementById("darkmodebutton").style.color = "black";
                 document.getElementById("navel").style.color = "black";
+                document.getElementById("g").style.color = "white";
                 document.body.style.backgroundColor = "white";
             }
             darkflag = !darkflag;
