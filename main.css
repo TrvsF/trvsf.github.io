@@ -8,6 +8,10 @@
   src: url("./HenryRed-Regular.ttf");
 }
 
+:root {
+  --hor-right: 90%;
+}
+
 * {
   color: black;
   margin: 0;
@@ -38,12 +42,22 @@
   animation-timing-function: linear;
 }
 
+#darkbutton {
+  text-align: right;
+  margin-right: 5%;
+}
+
+#darkbutton button {
+  all: unset;
+  cursor: pointer;
+}
+
 @keyframes hor-movement {
   from {
-    margin-left: 10%;
+    margin-left: 25%;
   }
   to {
-    margin-left: 90%;
+    margin-left: 75%;
   }
 }
   
@@ -54,14 +68,6 @@
   to {
     margin-top: 40%;
   }
-}
-
-.image {
-  animation-name: hor-movement, ver-movement;
-  animation-duration: 3.141s, 3.414s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
-  animation-timing-function: linear;
 }
 
 .bottom {
@@ -77,8 +83,31 @@
   font-size: 2em;
 }
 
-.bounds {
+.imgbounds {
   top: 0%;
   width: 80%;
   margin-bottom: 200px;
+  position: relative;
+  display: inline-block;
+}
+
+.imgbounds img {
+  animation-name: hor-movement, ver-movement;
+  animation-duration: 3.141s, 3.414s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: linear;
+}
+
+.imgbounds .img-top {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.imgbounds .img-top:hover {
+  opacity: 1;
+  display: inline;
 }
