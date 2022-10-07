@@ -27,9 +27,7 @@
         var bgtwo = window.setInterval(changeBg, 3614);
 
         function changeFont() {
-            let n = number % 10;
-
-            switch(number % 10) {
+            switch(number % 8) {
                 case 0:
                     document.getElementById("maintitle").style.fontFamily = "henryred";
                     break;
@@ -40,10 +38,10 @@
                     document.getElementById("maintitle").style.fontFamily = "Arial, sans-serif";
                     break;  
                 case 3:
-                    document.getElementById("maintitle").style.fontFamily = "'Courier New', monospace";
+                    document.getElementById("maintitle").style.fontFamily = "Optima, sans-serif";
                     break;
                 case 4:
-                    document.getElementById("maintitle").style.fontFamily = "'Times New Roman', serif";
+                    document.getElementById("maintitle").style.fontFamily = "FreeMono, monospace";
                     break;
                 case 5:
                     document.getElementById("maintitle").style.fontFamily = "FreeMono, monospace";
@@ -54,19 +52,11 @@
                 case 7:
                     document.getElementById("maintitle").style.fontFamily = "Georgia, cursive";
                     break; 
-                case 8:
-                    document.getElementById("maintitle").style.fontFamily = "'Rajdhani', sans-serif";
-                    break; 
-                case 9:
-                    document.getElementById("maintitle").style.fontFamily = "'Andale Mono', monospace";
-                    break; 
             }
             number++;
         }
 
         function changeBg() {
-            let n = number % 6;
-
             switch(number % 6) {
                 case 0:
                     document.getElementById("nav").style.color = "white";
