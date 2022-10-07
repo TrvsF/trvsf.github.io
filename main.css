@@ -19,8 +19,8 @@
   margin-top: 1%;
   margin-bottom: 1%;
   font-size: 3ch;
-  font-family: "henryblue" !important;
   text-align: center;
+  word-spacing: 30px;
 }
 
 #georgia {
@@ -32,7 +32,7 @@
 #maintitle {
   font-size: 40px;
   animation-name: hor-movement, ver-movement;
-  animation-duration: 3.141s, 3.614s;
+  animation-duration: 4.141s, 4.614s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;
@@ -49,7 +49,7 @@
   
 @keyframes ver-movement {
   from {
-    margin-top: 10%;
+    margin-top: 0%;
   }
   to {
     margin-top: 40%;

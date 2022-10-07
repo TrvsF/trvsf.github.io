@@ -4,30 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trv$F</title>
+    <title>travis</title>
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 </head>
 <body>
-    <div id="nav">.ooo</div>
+    <div id="nav">
+        <a href="index.html" style="text-decoration: none;">.ooo</a>
+        <a href="index.html" style="text-decoration: none;">projects</a>
+        <a href="index.html" style="text-decoration: none;">awesome</a>
+    </div>
 
     <a id = "g" href="g.html" style="color: white; margin-top: 15%;">canoodle</a>
 
-    <div id="maintitle">tra<span style="color: red;">vis</span></div>
+    <div id="maintitle">tra<span id="vis" style="color: red;">vis</span></div>
 
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
 
     <script>
         var number = 0;
-        var fontone = window.setInterval(changeFont, 3141);
-        var fonttwo = window.setInterval(changeFont, 3614);
+        var bgone = window.setInterval(changeBg, 4141);
+        var bgtwo = window.setInterval(changeBg, 4614);
 
-        var bgone = window.setInterval(changeBg, 3141);
-        var bgtwo = window.setInterval(changeBg, 3614);
+        let flag = false;
+        var changenav = window.setInterval(changeNav, 350);
+
+        document.getElementById("nav").style.fontFamily = "henryblue";
+        function changeNav() {
+            flag = !flag;
+            if (flag)
+            {
+                document.getElementById("nav").style.fontFamily = "henryred";
+            }
+            else
+            {
+                document.getElementById("nav").style.fontFamily = "henryblue";
+            }
+            
+        }
 
         function changeFont() {
-            switch(number % 8) {
+            switch(randomInt(0, 7)) {
                 case 0:
                     document.getElementById("maintitle").style.fontFamily = "henryred";
                     break;
@@ -44,7 +62,7 @@
                     document.getElementById("maintitle").style.fontFamily = "FreeMono, monospace";
                     break;
                 case 5:
-                    document.getElementById("maintitle").style.fontFamily = "FreeMono, monospace";
+                    document.getElementById("maintitle").style.fontFamily = "Verdana, sans-serif";
                     break; 
                 case 6:
                     document.getElementById("maintitle").style.fontFamily = "Impact, fantasy";
@@ -53,40 +71,28 @@
                     document.getElementById("maintitle").style.fontFamily = "Georgia, cursive";
                     break; 
             }
-            number++;
         }
 
         function changeBg() {
+            changeFont();
             switch(number % 6) {
                 case 0:
-                    document.getElementById("nav").style.color = "white";
-                    document.getElementById("g").style.color = "LightSlateGray";
-                    document.body.style.backgroundColor = "LightSlateGray";
+                    document.getElementById("vis").style.color = "purple";
                     break;
                 case 1:
-                    document.getElementById("nav").style.color = "white";
-                    document.getElementById("g").style.color = "SaddleBrown";
-                    document.body.style.backgroundColor = "SaddleBrown";
+                    document.getElementById("vis").style.color = "blue";
                     break;
                 case 2:
-                    document.getElementById("nav").style.color = "white";
-                    document.getElementById("g").style.color = "BlueViolet";
-                    document.body.style.backgroundColor = "BlueViolet";
+                    document.getElementById("vis").style.color = "red";
                     break;  
                 case 3:
-                    document.getElementById("nav").style.color = "black";
-                    document.getElementById("g").style.color = "WhiteSmoke";
-                    document.body.style.backgroundColor = "WhiteSmoke";
+                    document.getElementById("vis").style.color = "black";
                     break;
                 case 4:
-                    document.getElementById("nav").style.color = "black";
-                    document.getElementById("g").style.color = "Orchid";
-                    document.body.style.backgroundColor = "Orchid";
+                    document.getElementById("vis").style.color = "green";
                     break;
                 case 5:
-                    document.getElementById("nav").style.color = "white";
-                    document.getElementById("g").style.color = "OrangeRed";
-                    document.body.style.backgroundColor = "OrangeRed";
+                    document.getElementById("vis").style.color = "yellow";
                     break; 
             }
             number += randomInt(1, 3);
