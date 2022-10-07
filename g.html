@@ -11,25 +11,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
 </head>
 <body>
+    <div id="nav"><a href="index.html" style="text-decoration: none;">.ooo</a></div>
+
     <div id="georgia">georgia <span style="color: red;">lessthan3</span> travis</div>
+    <div class="subgeorgia">
+        here's some music:) <br><br>
+        <a href="https://open.spotify.com/playlist/3Tjgjx4gDEYMGzhr3XjnnL?si=d23d03d2c90b4aaf" target="_blank" style="text-decoration: none; color: greenyellow;">georg1a</a> <br><br>
+        <a href="https://open.spotify.com/playlist/0tOjVPKdSXJrd1xWdlTg6X?si=a5d6e53f7ec24b23" target="_blank" style="text-decoration: none; color: blueviolet;">georg2a</a> <br><br>
+        <a href="https://open.spotify.com/playlist/0SpSMY0ZXiYG2mwErs1h61?si=a330e19d4ed244e6" target="_blank" style="text-decoration: none; color: tomato;">georg3a</a> <br><br>
+        ^^click on them^^
+    </div>
 
     <div class="bounds">
-    <img class="image" src="becarefull.jpg" width="250" height="250"> </img>
+        <img class="image" src="becarefull.jpg" width="250" height="250"> </img>
     </div>
-    
+
+    turns out when you move these pictures it moves the whole page, should probably find another way of moving them
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="bottom">
+        help im stuck!
+    </div>
+
     <script>
         let flag = false;
         var intervalID = window.setInterval(changeFont, 350);
+
+        document.body.style.fontFamily = "henryblue";
 
         function changeFont() {
             flag = !flag;
             if (flag)
             {
-                document.getElementById("georgia").style.fontFamily = "henryred";
+                document.body.style.fontFamily = "henryred";
             }
             else
             {
-                document.getElementById("georgia").style.fontFamily = "henryblue";
+                document.body.style.fontFamily = "henryblue";
             }
             
         }

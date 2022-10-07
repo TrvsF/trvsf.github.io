@@ -1,23 +1,32 @@
 @font-face {
-    font-family: "henryblue";
-    src: url("./HenryBlue-Regular.ttf");
+  font-family: "henryblue";
+  src: url("./HenryBlue-Regular.ttf");
 }
 
 @font-face {
-    font-family: "henryred";
-    src: url("./HenryRed-Regular.ttf");
+  font-family: "henryred";
+  src: url("./HenryRed-Regular.ttf");
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-size: 150px;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+#nav {
+  color: black;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 3ch;
+  font-family: "henryblue" !important;
+  text-align: center;
 }
 
 #georgia {
-    font-family: "henryblue";
-    color: greenyellow;
-    text-align: center;
+  font-size: 18ch;
+  color: greenyellow;
+  text-align: center;
 }
 
 #maintitle {
@@ -29,18 +38,14 @@
   animation-timing-function: linear;
 }
 
-#maintitle span {
-  font-size: 40px;
-}
-
 @keyframes hor-movement {
-    from {
-      margin-left: 10%;
-    }
-    to {
-      margin-left: 90%;
-    }
+  from {
+    margin-left: 10%;
   }
+  to {
+    margin-left: 90%;
+  }
+}
   
 @keyframes ver-movement {
   from {
@@ -52,15 +57,28 @@
 }
 
 .image {
-    position: inherit;
-    animation-name: hor-movement, ver-movement;
-    animation-duration: 1.141s, 1.414s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: linear;
+  animation-name: hor-movement, ver-movement;
+  animation-duration: 3.141s, 3.414s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: linear;
+}
+
+.bottom {
+  font-size: larger;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+.subgeorgia {
+  text-align: center;
+  font-size: 2em;
 }
 
 .bounds {
-    width: 400px;
-    height: 600px;
+  top: 0%;
+  width: 80%;
+  margin-bottom: 200px;
 }

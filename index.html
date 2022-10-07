@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div id="wholething">
-        <div id="maintitle">tra<span style="color: red;">vis</div>
-    </div>
-    
+    <div id="nav">.ooo</div>
+
+    <a id = "g" href="g.html" style="color: white; margin-top: 15%;">canoodle</a>
+
+    <div id="maintitle">tra<span style="color: red;">vis</span></div>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
+
     <script>
         var number = 0;
-        var font = window.setInterval(changeFont, 1500);
+        var fontone = window.setInterval(changeFont, 3141);
+        var fonttwo = window.setInterval(changeFont, 3614);
 
         var bgone = window.setInterval(changeBg, 3141);
         var bgtwo = window.setInterval(changeBg, 3614);
 
         function changeFont() {
-            let n = number % 6;
+            let n = number % 10;
 
-            switch(n) {
+            switch(number % 10) {
                 case 0:
                     document.getElementById("maintitle").style.fontFamily = "henryred";
                     break;
@@ -42,38 +46,64 @@
                     document.getElementById("maintitle").style.fontFamily = "'Times New Roman', serif";
                     break;
                 case 5:
-                    document.getElementById("maintitle").style.fontFamily = "Garamond, serif";
+                    document.getElementById("maintitle").style.fontFamily = "FreeMono, monospace";
+                    break; 
+                case 6:
+                    document.getElementById("maintitle").style.fontFamily = "Impact, fantasy";
+                    break; 
+                case 7:
+                    document.getElementById("maintitle").style.fontFamily = "Georgia, cursive";
+                    break; 
+                case 8:
+                    document.getElementById("maintitle").style.fontFamily = "'Rajdhani', sans-serif";
+                    break; 
+                case 9:
+                    document.getElementById("maintitle").style.fontFamily = "'Andale Mono', monospace";
                     break; 
             }
-
             number++;
         }
 
         function changeBg() {
             let n = number % 6;
 
-            switch(n) {
+            switch(number % 6) {
                 case 0:
-                    document.body.style.backgroundColor = "black";
+                    document.getElementById("nav").style.color = "white";
+                    document.getElementById("g").style.color = "LightSlateGray";
+                    document.body.style.backgroundColor = "LightSlateGray";
                     break;
                 case 1:
-                    document.body.style.backgroundColor = "blue";
+                    document.getElementById("nav").style.color = "white";
+                    document.getElementById("g").style.color = "SaddleBrown";
+                    document.body.style.backgroundColor = "SaddleBrown";
                     break;
                 case 2:
-                    document.body.style.backgroundColor = "red";
+                    document.getElementById("nav").style.color = "white";
+                    document.getElementById("g").style.color = "BlueViolet";
+                    document.body.style.backgroundColor = "BlueViolet";
                     break;  
                 case 3:
-                    document.body.style.backgroundColor = "white";
+                    document.getElementById("nav").style.color = "black";
+                    document.getElementById("g").style.color = "WhiteSmoke";
+                    document.body.style.backgroundColor = "WhiteSmoke";
                     break;
                 case 4:
-                    document.body.style.backgroundColor = "green";
+                    document.getElementById("nav").style.color = "black";
+                    document.getElementById("g").style.color = "Orchid";
+                    document.body.style.backgroundColor = "Orchid";
                     break;
                 case 5:
-                    document.body.style.backgroundColor = "purple";
+                    document.getElementById("nav").style.color = "white";
+                    document.getElementById("g").style.color = "OrangeRed";
+                    document.body.style.backgroundColor = "OrangeRed";
                     break; 
             }
-            
-            number++;
+            number += randomInt(1, 3);
+        }
+
+        function randomInt(min, max) { 
+            return Math.floor(Math.random() * (max - min + 1) + min)
         }
 
     </script>
