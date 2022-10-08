@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 </head>
-<body>
+<body style="background-color:white;">
     <div id="nav">
-        <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
-        <a id="navel" href="https://github.com/trvsf" style="text-decoration: none;">github</a>
-        <a id="navel" href="index.html" style="text-decoration: none;">b(l)og</a>
+        <a id="navel" href="index.html" style="text-decoration: none;"><span id="one">.</span>o<span id="two">o</span>o</a>
+        <a id="navel" href="work.html" style="text-decoration: none;">work</a>
+        <a id="navel" href="links.html" style="text-decoration: none;">links</a>
     </div>
 
     <div id="darkbutton">
@@ -21,6 +21,15 @@
     </div>
 
     <a id = "g" href="g.html" style="color: white; margin-top: 15%;">canoodle</a>
+
+    <span id="eyes" style="margin-left: 5%; margin-top: 30%; transform: rotate(21deg);">o o</span>
+    <span id="eyes" style="margin-left: 67%; margin-top: 12%; transform: rotate(173deg);">o o</span>
+    <span id="eyes" style="margin-left: 32%; margin-top: 5%; transform: rotate(148deg);">o o</span>
+    <span id="eyes" style="margin-left: 20%; margin-top: 35%; transform: rotate(11deg);">o o</span>
+    <span id="eyes" style="margin-left: 83%; margin-top: 22%; transform: rotate(32deg);">o o</span>
+    <span id="eyes" style="margin-left: 21%; margin-top: 3%; transform: rotate(148deg);">o o</span>
+    <span id="eyes" style="margin-left: 64%; margin-top: 32%; transform: rotate(11deg);">o o</span>
+    <span id="eyes" style="margin-left: 83%; margin-top: 7%; transform: rotate(32deg);">o o</span>
 
     <a id="deeper" href="somewhereelse.html" style="text-decoration: none;">ḑ̻̫̝̣͇̰ȩ̛̫͇̦̩͎̲͙͡ę̴̯͇̰͕̹͕͓́ṕ̶̞̭̪͝e̼̼̯̪̹̜r̴͏͓̦͚͔̹</a>
 
@@ -38,12 +47,16 @@
                 document.getElementById("darkmodebutton").style.color = "white";
                 document.getElementById("navel").style.color = "white";
                 document.getElementById("g").style.color = "black";
+                document.getElementById("one").style.color = "black";
+                document.getElementById("two").style.color = "black";
                 document.body.style.backgroundColor = "black";
             } else {
                 document.getElementById("darkmodebutton").innerHTML = "d";
                 document.getElementById("darkmodebutton").style.color = "black";
                 document.getElementById("navel").style.color = "black";
                 document.getElementById("g").style.color = "white";
+                document.getElementById("one").style.color = "black";
+                document.getElementById("two").style.color = "black";
                 document.body.style.backgroundColor = "white";
             }
             darkflag = !darkflag;

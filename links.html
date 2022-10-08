@@ -15,7 +15,29 @@
         <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
     </div>
 
+    <div id="links">
+        <a class="link" href="https://github.com/trvsf" target="_blank" style="text-decoration: none; color: coral;">github</a>
+        <a class="link" href="https://steamcommunity.com/id/travisf" target="_blank" style="text-decoration: none; color: cornflowerblue;">steam</a>
+        <a class="link" href="https://twitter.com/trvsf" target="_blank" style="text-decoration: none; color: deepskyblue;">twitter</a>
+        <a class="link" href="https://open.spotify.com/user/yl498az4keh7nteqktw0pvjjd?si=7103fbcb413a4424" target="_blank" style="text-decoration: none; color: lawngreen;">spotify</a>
+    </div>
+
     <script>
+        const linkcolours = ["coral", "cornflowerblue", "deepskyblue", "lawngreen"]
+        const linkelements = document.getElementsByClassName("link");
+
+        var ic = 0;
+
+        var changcolour = window.setInterval(changeColour, 350);
+
+        function changeColour() {
+            for (let i = 0; i < linkelements.length; i++) {
+                linkelements[i].style.color = linkcolours[ic%4];
+                ic++;
+            }
+            ic++;
+        }
+
         let flag = false;
         var changfont = window.setInterval(changeFont, 350);
 
