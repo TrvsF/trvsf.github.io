@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
 </head>
-<body>
+<body style="background-color:AntiqueWhite;">
     <div id="nav">
         <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
     </div>
@@ -28,11 +28,26 @@
         <img class="img-top" src="becarefull.jpg" width="250" height="250" alt=":)"> </img>
     </div>
 
+    <br><br><br><br><br><br><br><br>
+
+    <div id="colouroftheday"></div>
+
     <div class="bottom">
         thank you for being good at ideas x
     </div>
 
     <script>
+        document.getElementById("colouroftheday").style.backgroundColor = getRandomColor();
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
         let flag = false;
         var changfont = window.setInterval(changeFont, 350);
 

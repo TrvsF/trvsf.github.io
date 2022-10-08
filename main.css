@@ -86,6 +86,26 @@
   text-decoration: none;
 }
 
+#colouroftheday {
+  margin: auto;
+  width: 5%;
+  height: 6em;
+}
+
+#songoftheday {
+  transform: rotate(17deg);
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  margin-left: 70%;
+  margin-top: 6em;
+}
+
+#songoftheday a {
+  text-decoration: none;
+  color: white;
+}
+
 @keyframes hor-movement-img {
   from {
     margin-left: 0%;
@@ -153,4 +173,5 @@
 .imgbounds .img-top:hover {
   opacity: 1;
   display: inline;
+  z-index: 99;
 }
