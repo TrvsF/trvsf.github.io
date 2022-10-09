@@ -162,6 +162,7 @@
   opacity: 0;
   position: absolute;
   z-index: 99;
+  transform: translate(-250px, 0);
 }
 
 .imgbounds .img-top:hover {
