@@ -1,11 +1,11 @@
 @font-face {
   font-family: "henryblue";
-  src: url("./HenryBlue-Regular.ttf");
+  src: url("./fonts/HenryBlue-Regular.ttf");
 }
 
 @font-face {
   font-family: "henryred";
-  src: url("./HenryRed-Regular.ttf");
+  src: url("./fonts/HenryRed-Regular.ttf");
 }
 
 :root {

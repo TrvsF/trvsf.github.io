@@ -33,44 +33,16 @@
     </div>
 
     <div class="imgbounds">
-        <img src="beawful.jpg" width="250" height="250" alt=":)">
-        <img class="img-top" src="becarefull.jpg" width="250" height="250" alt=":)"> </img>
+        <img src="pictures/beawful.jpg" width="250" height="250" alt=":)">
+        <img class="img-top" src="pictures/becarefull.jpg" width="250" height="250" alt=":)"> </img>
     </div>
 
     <div class="bottom">
         thank you for being good at ideas x
     </div>
 
-    <script>
-        let colour = getRandomColor();
-        document.getElementById("colouroftheday").style.backgroundColor = colour;
-        document.getElementById("colouroftheday").innerHTML = colour;
+    <script src="./scripts/text-animate.js"></script>
+    <script src="./scripts/random-colour.js"></script>
 
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF';
-            var color = '#';
-            for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        let flag = false;
-        var changfont = window.setInterval(changeFont, 350);
-
-        document.body.style.fontFamily = "henryblue";
-
-        function changeFont() {
-            flag = !flag;
-            if (flag)
-            {
-                document.body.style.fontFamily = "henryred";
-            }
-            else
-            {
-                document.body.style.fontFamily = "henryblue";
-            }
-        }
-    </script>
 </body>
 </html>
