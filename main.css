@@ -88,8 +88,8 @@
 
 #colouroftheday {
   margin: auto;
-  width: 5%;
-  height: 6em;
+  width: 8em;
+  height: 8em;
 }
 
 #songoftheday {
@@ -104,6 +104,10 @@
 #songoftheday a {
   text-decoration: none;
   color: white;
+}
+
+#pastsongs a {
+  text-decoration: underline;
 }
 
 @keyframes hor-movement-img {
@@ -147,26 +151,16 @@
 }
 
 .imgbounds {
+  text-align: center;
   z-index: -10;
-  position: absolute;
-  top: 0;
+  position: relative;
   width: 100%;
   height: 5em;
-}
-
-.imgbounds img {
-  animation-name: hor-movement-img, ver-movement;
-  animation-duration: 3.141s, 3.414s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
-  animation-timing-function: linear;
 }
 
 .imgbounds .img-top {
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 99;
 }
 

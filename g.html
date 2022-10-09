@@ -23,21 +23,23 @@
         <a href="https://open.spotify.com/playlist/0SpSMY0ZXiYG2mwErs1h61?si=a330e19d4ed244e6" target="_blank" style="text-decoration: none; color: tomato;">georg3a</a> <br><br>
     </div>
 
+    <div id="colouroftheday">HI:)</div>
+
+    <br><br><br>
+
     <div class="imgbounds">
-        <img src="beawful.jpg" width="250" height="250" alt=":)">
-        <img class="img-top" src="becarefull.jpg" width="250" height="250" alt=":)"> </img>
+        <img src="becarefull.jpg" width="250" height="250" alt=":)">
+        <!--<img class="img-top" src="becarefull.jpg" width="250" height="250" alt=":)"> </img>-->
     </div>
-
-    <br><br><br><br><br><br><br><br>
-
-    <div id="colouroftheday"></div>
 
     <div class="bottom">
         thank you for being good at ideas x
     </div>
 
     <script>
-        document.getElementById("colouroftheday").style.backgroundColor = getRandomColor();
+        let colour = getRandomColor();
+        document.getElementById("colouroftheday").style.backgroundColor = colour;
+        document.getElementById("colouroftheday").innerHTML = colour;
 
         function getRandomColor() {
             var letters = '0123456789ABCDEF';

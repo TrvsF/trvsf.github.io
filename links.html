@@ -22,6 +22,7 @@
         <a class="link" href="https://open.spotify.com/user/yl498az4keh7nteqktw0pvjjd?si=7103fbcb413a4424" target="_blank" style="text-decoration: none; color: lawngreen;">spotify</a>
     </div>
 
+    <script src="scripts/text-animate.js"></script>
     <script>
         const linkcolours = ["coral", "cornflowerblue", "deepskyblue", "lawngreen"]
         const linkelements = document.getElementsByClassName("link");
@@ -36,23 +37,6 @@
                 ic++;
             }
             ic++;
-        }
-
-        let flag = false;
-        var changfont = window.setInterval(changeFont, 350);
-
-        document.body.style.fontFamily = "henryblue";
-
-        function changeFont() {
-            flag = !flag;
-            if (flag)
-            {
-                document.body.style.fontFamily = "henryred";
-            }
-            else
-            {
-                document.body.style.fontFamily = "henryblue";
-            }
         }
     </script>
 </body>
