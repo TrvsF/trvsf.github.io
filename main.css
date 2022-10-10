@@ -42,7 +42,7 @@
 }
 
 #maintitle {
-  font-size: 3em;
+  font-size: 4em;
   animation-name: hor-movement, ver-movement;
   animation-duration: 4.141s, 4.614s;
   animation-iteration-count: infinite;
@@ -90,6 +90,11 @@
   margin: auto;
   width: 8em;
   height: 8em;
+}
+
+#colourcountdown {
+  margin: auto;
+  text-align: center;
 }
 
 #songoftheday {

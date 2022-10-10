@@ -172,7 +172,6 @@ var MersenneTwister = function(seed) {
   
   /* These real versions are due to Isaku Wada, 2002/01/09 added */
   
-
 const date = new Date();
 
 let colour = getRandomColor();
@@ -189,26 +188,19 @@ function getRandomColor() {
     return color;
 }
 
-/*
-  I've wrapped Makoto Matsumoto and Takuji Nishimura's code in a namespace
-  so it's better encapsulated. Now you can have multiple random number generators
-  and they won't stomp all over eachother's state.
-  
-  If you want to use this as a substitute for Math.random(), use the random()
-  method like so:
-  
-  var m = new MersenneTwister();
-  var randomNumber = m.random();
-  
-  You can also call the other genrand_{foo}() methods on the instance.
-
-  If you want to use a specific seed in order to get a repeatable random
-  sequence, pass an integer into the constructor:
-
-  var m = new MersenneTwister(123);
-
-  and that will always produce the same random sequence.
-
-  Sean McCullough (banksean@gmail.com)
-*/
-
+setInterval(
+function doColourCountdown() {
+  let currentdate = new Date();
+  let tomorrow = new Date();
+  tomorrow.setHours(24, 0, 0, 0);
+  let diffMS=tomorrow.getTime()/1000-currentdate.getTime()/1000;
+  let diffHr=Math.floor(diffMS/3600);
+  diffMS=diffMS-diffHr*3600;
+  let diffMi=Math.floor(diffMS/60);
+  diffMS=diffMS-diffMi*60;
+  let diffS=Math.floor(diffMS);
+  let result=((diffHr<10)?"0"+diffHr:diffHr);
+  result+=":"+((diffMi<10)?"0"+diffMi:diffMi);
+  result+=":"+((diffS<10)?"0"+diffS:diffS);
+  document.getElementById("colourcountdown").innerHTML = result;
+}, 500);

@@ -1,3 +1,9 @@
+<!--
+    TODO:
+    - splash screen random motd mainscreen
+    - fix padding on mainscreen
+    - more items in the void
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +26,7 @@
        <button id="darkmodebutton" onclick="darkMode()">d</button>
     </div>
 
-    <a id = "g" href="g.html" style="color: white; margin-top: 15%;">canoodle</a>
+    <a id = "g" href="g.html" style="color: white; margin-top: 15%; margin-left: 10%;">g</a>
 
     <span id="eyes" style="margin-left: 5%; margin-top: 30%; transform: rotate(21deg);">o o</span>
     <span id="eyes" style="margin-left: 67%; margin-top: 12%; transform: rotate(173deg);">o o</span>
@@ -39,6 +45,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
 
     <script>
+        // DARK MODE
         let darkflag = true;
         function darkMode() {
             if (darkflag) {
@@ -46,7 +53,6 @@
                 document.getElementById("darkmodebutton").innerHTML = "l";
                 document.getElementById("darkmodebutton").style.color = "white";
                 document.getElementById("navel").style.color = "white";
-                document.getElementById("g").style.color = "black";
                 document.getElementById("one").style.color = "black";
                 document.getElementById("two").style.color = "black";
                 document.body.style.backgroundColor = "black";
@@ -54,14 +60,12 @@
                 document.getElementById("darkmodebutton").innerHTML = "d";
                 document.getElementById("darkmodebutton").style.color = "black";
                 document.getElementById("navel").style.color = "black";
-                document.getElementById("g").style.color = "white";
-                document.getElementById("one").style.color = "black";
-                document.getElementById("two").style.color = "black";
                 document.body.style.backgroundColor = "white";
             }
             darkflag = !darkflag;
         }
 
+        // NAV FONT ANIMATOR
         var number = 0;
         var bgone = window.setInterval(changeBg, 4141);
         var bgtwo = window.setInterval(changeBg, 4614);
@@ -79,33 +83,22 @@
             }
         }
 
+        // FONT BOUNCE
+        var fontlist = [
+            "henryred",
+            "Arial",
+            "Verdana",
+            "Tahoma",
+            "Trebuchet MS",
+            "Times New Roman",
+            "Georgia",
+            "Garamond",
+            "Courier New",
+            "Brush Script MT"
+        ]
+
         function changeFont() {
-            switch(randomInt(0, 7)) {
-                case 0:
-                    document.getElementById("maintitle").style.fontFamily = "henryred";
-                    break;
-                case 1:
-                    document.getElementById("maintitle").style.fontFamily = "Verdana, sans-serif";
-                    break;
-                case 2:
-                    document.getElementById("maintitle").style.fontFamily = "Arial, sans-serif";
-                    break;  
-                case 3:
-                    document.getElementById("maintitle").style.fontFamily = "Optima, sans-serif";
-                    break;
-                case 4:
-                    document.getElementById("maintitle").style.fontFamily = "FreeMono, monospace";
-                    break;
-                case 5:
-                    document.getElementById("maintitle").style.fontFamily = "Verdana, sans-serif";
-                    break; 
-                case 6:
-                    document.getElementById("maintitle").style.fontFamily = "system-ui";
-                    break; 
-                case 7:
-                    document.getElementById("maintitle").style.fontFamily = "Georgia, cursive";
-                    break; 
-            }
+            document.getElementById("maintitle").style.fontFamily = fontlist[randomInt(0, fontlist.length-1)];
         }
 
         function changeBg() {
