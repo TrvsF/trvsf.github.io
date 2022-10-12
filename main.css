@@ -42,6 +42,8 @@
 }
 
 #maintitle {
+  width: 0;
+  position: relative;
   font-size: 4em;
   animation-name: hor-movement, ver-movement;
   animation-duration: 4.141s, 4.614s;
@@ -50,9 +52,53 @@
   animation-timing-function: linear;
 }
 
+@keyframes hor-movement {
+  from {
+    left: 2em;
+  }
+  to {
+    left: calc(100% - 4em);
+  }
+}
+  
+@keyframes ver-movement {
+  from {
+    top: 0;
+  }
+  to {
+    top: 10em;
+  }
+}
+
 #darkbutton {
-  text-align: right;
-  margin-right: 5%;
+  position: absolute; 
+  left: 95%;
+}
+
+#splashtext {
+  padding-top: 5px;
+  font-size: 1.5em;
+  font-family: 'VT323', monospace;
+  position: absolute;
+  left: 55%;
+  color: #F9FA21;
+  text-shadow: 2px 2px #403F00;
+  top: 4%;
+
+  animation-name: splash;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes splash {
+  from {
+    transform: scale(1) rotate(345deg);
+  }
+  to {
+    transform: scale(1.1) rotate(345deg);
+  }
 }
 
 #darkbutton button {
@@ -63,11 +109,11 @@
 #deeper {
   color: white;
   position: absolute; 
-  margin-top: 40%; 
-  margin-left: 80%;
+  top: 80%; 
+  left: 80%;
 }
 
-#eyes {
+.eyes {
   font-family: "henryred";
   font-size: 2em;
   color: white;
@@ -113,33 +159,6 @@
 
 #pastsongs a {
   text-decoration: underline;
-}
-
-@keyframes hor-movement-img {
-  from {
-    margin-left: 0%;
-  }
-  to {
-    margin-left: 70%;
-  }
-}
-
-@keyframes hor-movement {
-  from {
-    margin-left: 15%;
-  }
-  to {
-    margin-left: 75%;
-  }
-}
-  
-@keyframes ver-movement {
-  from {
-    margin-top: 0%;
-  }
-  to {
-    margin-top: 35%;
-  }
 }
 
 .bottom {

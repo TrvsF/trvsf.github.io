@@ -13,13 +13,18 @@
     <title>travis</title>
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
-<body style="background-color:white;">
+<body style="background-color:white; overflow-x: hidden;">
     <div id="nav">
         <a id="navel" href="index.html" style="text-decoration: none;"><span id="one">.</span>o<span id="two">o</span>o</a>
         <a id="navel" href="work.html" style="text-decoration: none;">work</a>
         <a id="navel" href="links.html" style="text-decoration: none;">links</a>
+    </div>
+
+    <div id="splashtext">
+        HELLO
     </div>
 
     <div id="darkbutton">
@@ -28,14 +33,17 @@
 
     <a id = "g" href="g.html" style="color: white; margin-top: 15%; margin-left: 10%;">g</a>
 
-    <span id="eyes" style="margin-left: 5%; margin-top: 30%; transform: rotate(21deg);">o o</span>
-    <span id="eyes" style="margin-left: 67%; margin-top: 12%; transform: rotate(173deg);">o o</span>
-    <span id="eyes" style="margin-left: 32%; margin-top: 5%; transform: rotate(148deg);">o o</span>
-    <span id="eyes" style="margin-left: 20%; margin-top: 35%; transform: rotate(11deg);">o o</span>
-    <span id="eyes" style="margin-left: 83%; margin-top: 22%; transform: rotate(32deg);">o o</span>
-    <span id="eyes" style="margin-left: 21%; margin-top: 3%; transform: rotate(148deg);">o o</span>
-    <span id="eyes" style="margin-left: 64%; margin-top: 32%; transform: rotate(11deg);">o o</span>
-    <span id="eyes" style="margin-left: 83%; margin-top: 7%; transform: rotate(32deg);">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
+    <span class="eyes">o o</span>
 
     <a id="deeper" href="somewhereelse.html" style="text-decoration: none;">ḑ̻̫̝̣͇̰ȩ̛̫͇̦̩͎̲͙͡ę̴̯͇̰͕̹͕͓́ṕ̶̞̭̪͝e̼̼̯̪̹̜r̴͏͓̦͚͔̹</a>
 
@@ -45,6 +53,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
 
     <script>
+        doSplash();
+        doEyes();
+
         // DARK MODE
         let darkflag = true;
         function darkMode() {
@@ -95,12 +106,65 @@
             "Garamond",
             "Courier New",
             "Brush Script MT"
-        ]
+        ];
 
         function changeFont() {
             document.getElementById("maintitle").style.fontFamily = fontlist[randomInt(0, fontlist.length-1)];
         }
 
+        //EYES
+        function doEyes() {
+            let eyelist = document.getElementsByClassName("eyes");
+
+            for (let i = 0; i < eyelist.length; i++) {
+                eyelist[i].style.left = randomInt(10, 90) + "%";
+                eyelist[i].style.top = randomInt(15, 95) + "%";
+                eyelist[i].style.transform = "rotate(" + randomInt(-45, 45) + "deg)";
+            }
+        }
+
+        // SPLASHTEXT
+        function doSplash() {
+            let splashlist = [
+                "not mobile friendly!",
+                "hello world!",
+                "cool fonts!",
+                "splash text!",
+                "made by me :D",
+                "indev!",
+                "sqrt(-1) love you!",
+                "...!",
+                "pc gaming since 1873!",
+                "minty biscuit!",
+                "unexpected item in bagging area!",
+                "i'm in the entry!",
+                "be gone burpy one!",
+                "it is about the golden egg cup!",
+                "bon voyage me old cream cracker!",
+                "steeeeeeeeeeve madden!",
+                "don't laugh i love you!",
+                "jon tickle WALKS on custard!",
+                "gary cahuenga!",
+                "good mythical morning!",
+                "pre-beta!",
+                "700+ hits on youtube!",
+                "singleplayer!",
+                "we're just normal men!",
+                "we're just innocent men!",
+                "lil joshy fan!",
+                "martin in the carpet!",
+                "ttt_minecraft_b5",
+                "de_cache fan!",
+                "fishfishfish!",
+                "my dad's richer than yours!",
+                "peace & love!",
+                "myticket please!"
+            ]
+
+            document.getElementById("splashtext").innerHTML = splashlist[randomInt(0, splashlist.length-1)];
+        }
+
+        
         function changeBg() {
             changeFont();
             switch(number % 6) {
