@@ -71,6 +71,7 @@
 }
 
 #darkbutton {
+  z-index: 200;
   position: absolute; 
   left: 95%;
 }
