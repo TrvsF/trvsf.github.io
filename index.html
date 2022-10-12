@@ -47,10 +47,7 @@
 
     <a id="deeper" href="somewhereelse.html" style="text-decoration: none;">ḑ̻̫̝̣͇̰ȩ̛̫͇̦̩͎̲͙͡ę̴̯͇̰͕̹͕͓́ṕ̶̞̭̪͝e̼̼̯̪̹̜r̴͏͓̦͚͔̹</a>
 
-    <div id="maintitle">tra<span id="vis" style="color: red;">vis</span><span style="color: white;">able</span></div>
-    
-
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet"> 
+    <div id="maintitle">tra<span id="vis" style="color: red;">vis</span><span style="color: white;">f</span></div>
 
     <script>
         doSplash();
@@ -78,8 +75,8 @@
 
         // NAV FONT ANIMATOR
         var number = 0;
-        var bgone = window.setInterval(changeBg, 4141);
-        var bgtwo = window.setInterval(changeBg, 4614);
+        var bgone = window.setInterval(changeFontColour, 4141);
+        var bgtwo = window.setInterval(changeFontColour, 4614);
 
         let flag = false;
         var changenav = window.setInterval(changeNav, 350);
@@ -109,18 +106,33 @@
         ];
 
         function changeFont() {
-            document.getElementById("maintitle").style.fontFamily = fontlist[randomInt(0, fontlist.length-1)];
+            document.getElementById("maintitle").style.fontFamily = getRandomElementFromList(fontlist);
         }
 
+        var eyeblink = window.setInterval(blinkEyes, 1200);
+
         //EYES
+        function blinkEyes() {
+            let eyelist = getEyeList();
+            getRandomElementFromList(eyelist).style.visibility = "visible";
+        
+            let eye = getRandomElementFromList(eyelist);
+            eye.style.visibility = "hidden";
+            blinkedEyes.push(eye);
+        }
+
         function doEyes() {
-            let eyelist = document.getElementsByClassName("eyes");
+            let eyelist = getEyeList();
 
             for (let i = 0; i < eyelist.length; i++) {
                 eyelist[i].style.left = randomInt(10, 90) + "%";
                 eyelist[i].style.top = randomInt(15, 95) + "%";
                 eyelist[i].style.transform = "rotate(" + randomInt(-45, 45) + "deg)";
             }
+        }
+
+        function getEyeList() {
+            return document.getElementsByClassName("eyes");
         }
 
         // SPLASHTEXT
@@ -151,21 +163,25 @@
                 "singleplayer!",
                 "we're just normal men!",
                 "we're just innocent men!",
-                "lil joshy fan!",
                 "martin in the carpet!",
                 "ttt_minecraft_b5",
                 "de_cache fan!",
                 "fishfishfish!",
                 "my dad's richer than yours!",
                 "peace & love!",
-                "myticket please!"
+                "myticket please!",
+                "ow me bum!",
+                "bfg with a saggy arse!",
+                "giz a job!",
+                "aye aye, cpt!",
+                "enable javascript!"
             ]
 
-            document.getElementById("splashtext").innerHTML = splashlist[randomInt(0, splashlist.length-1)];
+            document.getElementById("splashtext").innerHTML = getRandomElementFromList(splashlist);
         }
 
         
-        function changeBg() {
+        function changeFontColour() {
             changeFont();
             switch(number % 6) {
                 case 0:
@@ -192,6 +208,10 @@
 
         function randomInt(min, max) { 
             return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function getRandomElementFromList(list) {
+            return list[randomInt(0, list.length-1)]
         }
 
     </script>
