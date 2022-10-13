@@ -145,6 +145,15 @@
   text-align: center;
 }
 
+#moretocome {
+  transform: rotate(-8deg);
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  left: 11%;
+  top: 21%;
+}
+
 #songoftheday {
   transform: rotate(17deg);
   color: white;
