@@ -172,6 +172,21 @@
   text-decoration: underline;
 }
 
+#colourcalender {
+  width: 69%;
+  height: 200px;
+  margin: auto;
+  font-size: 0.7em;
+}
+
+.calenderitem {
+  background-color: #F9FA21;
+  width: 8em;
+  height: 8em;
+  display: inline-block;
+  margin: 5px;
+}
+
 .bottom {
   font-size: larger;
   bottom: 0;

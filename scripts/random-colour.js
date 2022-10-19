@@ -178,14 +178,39 @@ let colour = getRandomColor();
 document.getElementById("colouroftheday").style.backgroundColor = colour;
 document.getElementById("colouroftheday").innerHTML = colour;
 
-function getRandomColor() {
-    var mt = new MersenneTwister("" + date.getDate() + date.getMonth() + date.getFullYear());
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(mt.random() * 16)];
-    }
-    return color;
+let calender = document.getElementById("colourcalender");
+let colourlist = getColoursSinceDate(new Date('October 19, 2022 23:15:30'));
+console.log(colourlist)
+for (let i = 0; i < colourlist.length; i++) {
+  var inner = document.createElement("div");
+  inner.className = "calenderitem";
+  inner.style.backgroundColor = colourlist[i];
+  inner.innerHTML = colourlist[i];
+
+  calender.appendChild(inner);
+}
+
+function getRandomColor() { 
+    var mt = new MersenneTwister(date.getDate() + date.getMonth() + date.getFullYear());
+    return getColourFromMt(mt);
+}
+
+function getColoursSinceDate(newdate) {
+  const colourlist = [];
+  for (let i = newdate.getDate() + newdate.getMonth() + newdate.getFullYear(); i < date.getDate() + date.getMonth() + date.getFullYear(); i++) {
+    let mt = new MersenneTwister(i);
+    colourlist.push(getColourFromMt(mt));
+  }
+  return colourlist;
+}
+
+function getColourFromMt(mt) {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(mt.random() * 16)];
+  }
+  return color;
 }
 
 setInterval(
