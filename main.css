@@ -179,6 +179,16 @@
   font-size: 0.7em;
 }
 
+#work-items {
+  margin-left: 23px;
+  width: 100%;
+  font-size: 2em;
+}
+
+.work-item {
+  left: 0;
+}
+
 .calenderitem {
   background-color: #F9FA21;
   width: 8em;

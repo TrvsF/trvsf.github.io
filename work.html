@@ -15,8 +15,44 @@
         <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
     </div>
 
-    <center>workin on leavin the living</center>
+    <div id="work-items">
+        click for more info!
+        <div class="work-item">
+            <a href="https://github.com/TrvsF/POGengine" style="color: red;">POGengine</a>
+            a second attempt at a c++ game engine with a lot more features
+        </div>
+        <div class="work-item">
+            <a href="https://github.com/WurstPlus/wurst-plus-three" style="color: orange;">Wurst+3</a>
+            third installment of the wurst+ trilogy
+        </div>
+        <div class="work-item">
+            <a href="https://github.com/TrvsF/POGeneticAlgorithm" style="color: blue;">POGeneticAlgorithm</a>
+            implementation of a genetic algorithm (using POGame), and data analysis of said algorithm
+        </div>
+    </div>
 
     <script src="scripts/text-animate.js"></script>
+    <!-- <script>
+        doEyes();
+
+        function doEyes() {
+            let y = 100;
+            let eyelist = getEyeList();
+
+            for (let i = 0; i < eyelist.length; i++) {
+                eyelist[i].style.left = randomInt(0, 70) + "%";
+                eyelist[i].style.top = y + "px";
+                y += 80;
+            }
+        }
+
+        function getEyeList() {
+            return document.getElementsByClassName("work-item");
+        }
+
+        function randomInt(min, max) { 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+    </script> -->
 </body>
 </html>
