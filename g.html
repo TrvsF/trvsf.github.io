@@ -31,6 +31,8 @@
 
         <br><br><br>
 
+        <button id="calenderbutton" onclick="toggleColours()">see past colours</button>
+
         <div id="colourcalender">
         </div>
 
@@ -49,6 +51,19 @@
 
     <script src="./scripts/text-animate.js"></script>
     <script src="./scripts/random-colour.js"></script>
+    <script>
+        let hidden = true;
+        function toggleColours() {
+            hidden = !hidden;
+            if (hidden) {
+                document.getElementById("calenderbutton").innerHTML = "see past colours";
+                document.getElementById("colourcalender").style.visibility = "hidden";
+            } else {
+                document.getElementById("calenderbutton").innerHTML = "hide past colours";
+                document.getElementById("colourcalender").style.visibility = "visible";
+            }
+        }
+    </script>
 
 </body>
 </html>

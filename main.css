@@ -177,12 +177,18 @@
   height: 200px;
   margin: auto;
   font-size: 0.7em;
+  visibility: hidden;
 }
 
 #work-items {
   margin-left: 23px;
   width: 100%;
   font-size: 2em;
+}
+
+#calenderbutton {
+  all: unset;
+  cursor: pointer;
 }
 
 .work-item {
