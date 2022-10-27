@@ -180,7 +180,7 @@ document.getElementById("colouroftheday").innerHTML = colour;
 
 let calender = document.getElementById("colourcalender");
 let colourlist = getColoursSinceDate(new Date('October 19, 2022 23:15:30'));
-console.log(colourlist)
+colourlist = colourlist.reverse();
 for (let i = 0; i < colourlist.length; i++) {
   var inner = document.createElement("div");
   inner.className = "calenderitem";
