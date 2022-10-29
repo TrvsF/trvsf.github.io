@@ -1,4 +1,4 @@
-doHeart();
+// doHeart();
 
 function doHeart() {
     let heartlist = getHeartList();
