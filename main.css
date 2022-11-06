@@ -181,9 +181,13 @@
 }
 
 #work-items {
-  margin-left: 23px;
+  padding: 1em;
   width: 100%;
   font-size: 2em;
+}
+
+.work-item {
+  left: 0;
 }
 
 #calenderbutton {
@@ -210,10 +214,6 @@
   to {
     top: 150%;
   }
-}
-
-.work-item {
-  left: 0;
 }
 
 .calenderitem {

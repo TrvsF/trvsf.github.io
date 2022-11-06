@@ -1,4 +1,7 @@
-// doHeart();
+const hdate = new Date();
+if (hdate.getDate() == 28) {
+    doHeart();
+}
 
 function doHeart() {
     let heartlist = getHeartList();

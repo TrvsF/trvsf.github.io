@@ -197,6 +197,11 @@ function getRandomColor() {
 
 function getColoursSinceDate(newdate) {
   const colourlist = [];
+  console.log(newdate.getDate());
+  console.log(newdate.getMonth());
+  console.log(newdate.getFullYear());
+  console.log(newdate.getDate() + newdate.getMonth() + newdate.getFullYear());
+  console.log(date.getDate() + date.getMonth() + date.getFullYear());
   for (let i = newdate.getDate() + newdate.getMonth() + newdate.getFullYear(); i < date.getDate() + date.getMonth() + date.getFullYear(); i++) {
     let mt = new MersenneTwister(i);
     colourlist.push(getColourFromMt(mt));
