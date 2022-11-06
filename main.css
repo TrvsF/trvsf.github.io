@@ -181,13 +181,15 @@
 }
 
 #work-items {
-  padding: 1em;
-  width: 100%;
+  position: relative;
   font-size: 2em;
+  text-align: center;
 }
 
 .work-item {
-  left: 0;
+  margin-left: 18%;
+  margin-right: 18%;
+  background-color: aliceblue;
 }
 
 #calenderbutton {
