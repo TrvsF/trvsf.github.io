@@ -181,7 +181,6 @@
 }
 
 #work-items {
-  font-family: 'henryblue';
   margin-left: 5%;
   margin-right: 5%;
   border: 10px solid transparent;
@@ -192,6 +191,7 @@
 }
 
 .work-item {
+  font-family: 'henryblue';
   margin-left: 18%;
   margin-right: 18%;
   background-color: aliceblue;
