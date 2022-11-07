@@ -181,6 +181,7 @@
 }
 
 #work-items {
+  
   margin-left: 5%;
   margin-right: 5%;
   border: 10px solid transparent;
@@ -194,6 +195,10 @@
   margin-left: 18%;
   margin-right: 18%;
   background-color: aliceblue;
+}
+
+.work-item img {
+  margin-top: 10px;
 }
 
 #calenderbutton {
