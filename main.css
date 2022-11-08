@@ -181,10 +181,13 @@
 }
 
 #work-items {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
   border: 10px solid transparent;
-  border-image: url(pictures/ladybug.png) 30% round;
+  border: 15px solid transparent;
+  border-image-source: url(pictures/ladybugB.png);
+  border-image-repeat: round;
+  border-image-slice: 200;
   position: relative;
   font-size: 2em;
   text-align: center;
