@@ -187,7 +187,7 @@
   border: 15px solid transparent;
   border-image-source: url(pictures/ladybugB.png);
   border-image-repeat: round;
-  border-image-slice: 200;
+  border-image-slice: 33%;
   position: relative;
   font-size: 2em;
   text-align: center;
