@@ -27,16 +27,16 @@
         const linkcolours = ["coral", "cornflowerblue", "deepskyblue", "lawngreen"]
         const linkelements = document.getElementsByClassName("link");
 
-        var ic = 0;
+        var c = 0;
 
         var changcolour = window.setInterval(changeColour, 350);
 
         function changeColour() {
             for (let i = 0; i < linkelements.length; i++) {
-                linkelements[i].style.color = linkcolours[ic%4];
-                ic++;
+                linkelements[i].style.color = linkcolours[c%4];
+                c++;
             }
-            ic++;
+            c++;
         }
     </script>
 </body>
