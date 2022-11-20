@@ -265,6 +265,20 @@
   font-size: 2em;
 }
 
+#pics {
+  height: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#pics img {
+  z-index: -10;
+  width: 16em;
+  height: 16em;
+}
+
 .imgbounds {
   text-align: center;
   z-index: -10;
