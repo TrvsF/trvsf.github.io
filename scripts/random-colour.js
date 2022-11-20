@@ -191,7 +191,7 @@ for (let i = 0; i < colourlist.length; i++) {
 }
 
 function getRandomColor() { 
-    var mt = new MersenneTwister(date.getDate() + date.getMonth() + date.getFullYear());
+    var mt = new MersenneTwister(date.getDate() * date.getMonth() * date.getFullYear());
     return getColourFromMt(mt);
 }
 
