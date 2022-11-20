@@ -124,14 +124,19 @@
 
 #links {
   word-spacing: 3em;
-  height: 50%;
-  margin-top: 10em;
   text-align: center;
 }
 
 #links a {
   font-size: 4em;
   text-decoration: none;
+}
+
+#links div {
+  bottom: 6em;
+  position: fixed;
+  width: 100%;
+  text-align: center;
 }
 
 #colouroftheday {
