@@ -17,8 +17,9 @@
 
     <div id="links">
         <span style="font-size: 4em;">traviseff@gmail.com</span><br>
-        <span style="font-size: 1em; word-spacing: 0;">(my email)</span>
-        
+        <span style="font-size: 1.53em; word-spacing: 0;">(my email)</span><br>
+        <span style="font-size: 1.1em; word-spacing: 0;">giz a job!</span>
+        <div id="spinny">:D</div>
         <div class="linkssub">
             <span style="font-size: 2em;">here's some links</span><br>
             <a class="link" href="https://github.com/trvsf" target="_blank" style="text-decoration: none; color: coral;">github</a>
@@ -30,6 +31,13 @@
 
     <script src="scripts/text-animate.js"></script>
     <script>
+        // SPINNY
+        const whitespace = document.getElementById("spinny")
+        setInterval(function() {
+            whitespace.style.transform += "rotate(1.3deg)";
+        }, 1);
+
+        // LINKS COLOUR
         const linkcolours = ["coral", "cornflowerblue", "deepskyblue", "lawngreen"]
         const linkelements = document.getElementsByClassName("link");
 

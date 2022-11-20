@@ -135,8 +135,17 @@
 #links div {
   bottom: 6em;
   position: fixed;
-  width: 100%;
-  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#spinny {
+  color: #403F00;
+  font-family: Arial, Helvetica, sans-serif;
+  width: auto;
+  top: 30%;
+  height: 1.3em;
+  word-spacing: 0;
 }
 
 #colouroftheday {
