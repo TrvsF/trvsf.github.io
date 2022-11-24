@@ -202,7 +202,12 @@
   color: white;
 }
 
+#pastsongs {
+  color: white;
+}
+
 #pastsongs a {
+  color: white;
   text-decoration: underline;
 }
 
