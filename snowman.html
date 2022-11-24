@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travis</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
+</head>
+<body style="background-color:black;">
+    <div id="nav">
+        <a id="navel" href="index.html" style="text-decoration: none; color: white;">.ooo</a>
+    </div>
+
+    <canvas id="pjs"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+    <script type="application/processing" data-processing-target="pjs">
+        class Snow {
+            // classes in this language dont make sense 
+            float x, y, r, g, b;
+        
+            int size, dir; 
+        }
+        
+        PFont FONT; // the font object
+        
+        int[] BGRGB = {0, 0, 0}; // holds the background rgb values
+        int[] PLAYER_POS = {70, 900}; // x and y of the player
+        int[] ALIEN_S_POS = {1000, 100}; // x and y of the alien
+        
+        int START_TIME; // time that the game starts
+        int BORDER; // border so the player doesnt run off the screen
+        int PLAYER_SPEED; // speed at which the player moves
+        
+        String FACE = ""; // this is such a stupid hack but im sleepy and its currently 4:43am 
+        
+        Boolean GAME_START; // so the game doesnt auto start
+        Boolean CUTSCENE; // no move
+        Boolean FUNK; // IF WE FUNKIN
+        Boolean SHOULD_BEAM; // if the beam for the ship should appear
+        
+        // snow stuff
+        Snow[] flakes;
+        int SNOW_AMMOUNT = 200;
+        
+        void setup() {
+            
+            // setup frame so everything works goods
+            size(1280, 960); // 4:3  
+            frameRate(60); // :muscle:
+            noStroke(); // no outline please
+            smooth(4); // AA enabled (4x AA - i hope you have a gaming pc :muscle:)
+            
+            // bools
+            GAME_START = false;
+            CUTSCENE = true;
+            FUNK = false;
+            SHOULD_BEAM = false; 
+            
+            // ints
+            START_TIME = millis(); 
+            BORDER = 50; 
+            PLAYER_SPEED = 2; 
+        
+            // sets font
+            FONT = createFont("Georgia", 64);
+        
+            // inits the snow graphic
+            initSnow();
+        
+        }
+        
+        void draw() {
+            
+            // if we funkin make the boy flash
+            if (millis() % 4 == 0 && FUNK) {
+            BGRGB[0] = round(random(0, 255));
+            BGRGB[1] = round(random(0, 255));
+            BGRGB[2] = round(random(0, 255));
+            }
+            
+            // draws the bg colour (black by def)
+            background(BGRGB[0], BGRGB[1], BGRGB[2]);
+            
+            // does the snow graphic
+            doSnow();
+        
+            // does the text
+            doText();
+            
+            // does the hills
+            drawHills();
+            // does the floor
+            drawFloor();
+            
+            // does the player
+            drawPlayer();
+            checkPlayer();
+            
+            // does the alien
+            drawAlienShip();
+            
+        }
+        
+        // ---
+        // BACKGROUND //
+        // ---
+        
+        void drawFloor() {
+            stroke(255, 255, 255);
+            fill(255, 255, 255);
+            bezier(0, height, -200, height - 100, width - 50, height - 167, width + 250, height);
+        }
+        
+        void drawHills() {
+            stroke(170, 170, 170);
+            fill(170, 170, 170);
+            bezier(0, height, -200, height - 500, width - 250, height - 250, width - 800, height + 500);
+            bezier(400, height, 500, height - 450, width - 250, height - 500, width, height);
+            bezier(width - 200, height, width + 100, height - 300, width - 250, height - 250, width + 500, height);
+        }
+        
+        // ---
+        // PLAYER //
+        // ---
+        
+        void keyPressed() {
+            
+            if (CUTSCENE) {
+            return;
+            }
+            
+            if (keyCode == UP && PLAYER_POS[1] - BORDER >= 0) {
+            PLAYER_POS[1] -= PLAYER_SPEED;
+            }  
+            
+            if (keyCode == DOWN && PLAYER_POS[1] + BORDER <= height) {
+            PLAYER_POS[1] += PLAYER_SPEED;
+            }  
+            
+            if (keyCode == LEFT && PLAYER_POS[0] - BORDER >= 0) {
+            PLAYER_POS[0] -= PLAYER_SPEED;
+            }  
+            
+            if (keyCode == RIGHT && PLAYER_POS[1] + BORDER <= width) {
+            PLAYER_POS[0] += PLAYER_SPEED;
+            }  
+        
+        }
+        
+        void drawPlayer() {
+            if (FUNK) { // flys up
+            PLAYER_POS[1] -= 10;
+            }
+            stroke(0, 0, 0);
+            fill(255, 255, 255);
+            // body
+            ellipse(PLAYER_POS[0], PLAYER_POS[1], 75, 75);
+            // head
+            ellipse(PLAYER_POS[0], PLAYER_POS[1] - 60, 60, 60);
+            // eyes
+            fill(10, 10, 10);
+            ellipse(PLAYER_POS[0] + 20, PLAYER_POS[1] - 70, 7, 7);
+            ellipse(PLAYER_POS[0] - 20, PLAYER_POS[1] - 65, 7, 7);
+            // carrot
+            fill(255, 50, 0);
+            triangle(PLAYER_POS[0], PLAYER_POS[1] - 60, PLAYER_POS[0] - 2, PLAYER_POS[1] - 53, PLAYER_POS[0] + 20, PLAYER_POS[1] - 55);
+        }
+        
+        void checkPlayer() {
+            if (!SHOULD_BEAM && PLAYER_POS[0] > 600) {
+            SHOULD_BEAM = true;    
+            }
+            
+            if (PLAYER_POS[0] > 900) {
+            FUNK = true;
+            }
+        }
+        
+        // ---
+        // ALIEN SHIP //
+        // ---
+        
+        void drawAlienShip() {
+            // top bit
+            noStroke();
+            fill(190, 200, 130);
+            ellipse(ALIEN_S_POS[0], ALIEN_S_POS[1] - 20, 40, 65);
+            // bottom bit
+            stroke(0, 120, 0);
+            fill(30, 200, 30);
+            ellipse(ALIEN_S_POS[0], ALIEN_S_POS[1], 100, 65);
+            
+            // lights - god this looks awful
+            
+            stroke(getRRGB(), getRRGB(), getRRGB());
+            fill(getRRGB(), getRRGB(), getRRGB());
+            ellipse(ALIEN_S_POS[0] - 50, ALIEN_S_POS[1], 15, 15);
+            
+            stroke(getRRGB(), getRRGB(), getRRGB());
+            fill(getRRGB(), getRRGB(), getRRGB());
+            ellipse(ALIEN_S_POS[0], ALIEN_S_POS[1], 15, 15);
+            
+            stroke(getRRGB(), getRRGB(), getRRGB());
+            fill(getRRGB(), getRRGB(), getRRGB());
+            ellipse(ALIEN_S_POS[0] + 50, ALIEN_S_POS[1], 15, 15);
+            
+            // beam
+            if (SHOULD_BEAM) {
+            stroke(0, 120, 0, 60);
+            fill(30, 200, 30, 40);
+            triangle(ALIEN_S_POS[0] + 200, ALIEN_S_POS[1] + 800, ALIEN_S_POS[0] - 200, ALIEN_S_POS[1] + 800, ALIEN_S_POS[0], ALIEN_S_POS[1]);
+            }
+        }
+        
+        // ---
+        // TEXT //
+        // ---
+        
+        void doText() {
+            
+            if (!SHOULD_BEAM) {
+            if (millis() - START_TIME < 5000) {
+                CUTSCENE = true;
+                drawTitle();
+                drawSubTitle();
+            } else if (millis() - START_TIME < 8000) {
+                CUTSCENE = false;
+                drawLine1();
+            } else if (millis() - START_TIME < 10000) {
+                drawLine2();
+            } else {
+                drawLine3();
+            }
+            }
+            
+            if (SHOULD_BEAM && !FUNK) {
+            drawLine4();
+            }
+            
+            if (FUNK) {
+            drawLine5();
+            }
+            
+            
+        }
+        
+        void drawLine1() {
+            drawText("snowman wanted to find his purpose", 96, 128, 48);
+            drawText("and thus he wondered the hills", 64, 96, 96);
+        }
+        
+        void drawLine2() {
+            drawText("he didn't know what he would find", 96, 120, 40);
+            drawText("and thus he wondered the hills", 64, 96, 96);
+        }
+        
+        void drawLine3() {
+            drawText("he didn't know what he would find", 96, 120, 40);
+            drawText("though he didn't really mind :)", 50, 85, 87);
+        }
+        
+        void drawLine4() {
+            drawText("suddenly he saw a beam of energy descend from the sky", 96, 120, 40);
+            drawText("he hesitated, but then approached this anomaly", 50, 85, 87);
+        }
+        
+        void drawLine5() {
+            drawText("the snowman felt different, he didn't really know why", 96, 120, 40);
+            drawText("he looked up and wondered if he could fly", 50, 85, 87);
+        }
+        
+        void drawTitle() {
+            drawText("the snowman & the alien : a short story", 96, 128, 48);
+        }
+        
+        void drawSubTitle() {
+            // different faces for different FUNKS   
+            if (FUNK) {
+            if (millis() % 60 == 0) {
+                int r = round(random(0, 5));
+                if (r == 1) {
+                FACE = "-_-";
+                } else if (r == 2) {
+                FACE = ":0";
+                } else if (r == 3) {
+                FACE = "help";
+                } else if (r == 4) {
+                FACE = ":(";
+                } else {
+                FACE = ">:D";
+                }
+            }
+            } else {
+            FACE = ":)";
+            }
+        
+            String s = "by travis " + FACE;
+            
+            drawText(s, 64, width / 3 - 90, 96);
+            
+        }
+        
+        void drawText(String s, int size, int x, int y) {
+            textFont(FONT);
+            textSize(size);
+            
+            // sets the start of where the string should be
+            float _x = x + random(0, FUNK ? 6 : 0);
+            
+            // draws each char (used for when things get FUNKY)
+            for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            textSize(FUNK ? random(24, 36) : 24);
+            text(c, _x, y);
+            _x += textWidth(c) + random(0, FUNK ? 6 : 0);
+            }
+        }
+        
+        // ---
+        // SNOW //
+        // ---
+        
+        void initSnow() {
+            flakes = new Snow[SNOW_AMMOUNT];
+            
+            // inits each flake
+            for (int i = 0; i < SNOW_AMMOUNT; i++) {
+            Snow flake = new Snow();
+            flake.x = random(0, width);
+            flake.y = random(0, height); // dont want them all to spawn at the top
+            flake.r = 255;
+            flake.g = 250;
+            flake.b = 255;
+            flake.size = round(random(1, 5)); // produces a DOF effect
+            flake.dir = round(random(0, 1));
+            flakes[i] = flake;
+            }
+        }
+        
+        void doSnow() {
+            
+            for (int i = 0; i < flakes.length; i++) {
+            
+            // if we funky change the colour of the snow every now and again
+            if (FUNK) {
+                if (millis() % 30 == 0) {
+                flakes[i].r = getRRGB();
+                flakes[i].g = getRRGB();
+                flakes[i].b = getRRGB();
+                }
+            } 
+            
+            fill(flakes[i].r, flakes[i].g, flakes[i].b);
+            stroke(flakes[i].r, flakes[i].g, flakes[i].b);
+        
+            // draw the flake
+            ellipse(flakes[i].x, flakes[i].y, flakes[i].size, flakes[i].size);
+            
+            // make the flake not fall straight down, adding a wind effect (ish they dont all go the same way bc thats boring)
+            if (flakes[i].dir == 0) {
+                flakes[i].x += map(flakes[i].size, 1, 5, .1, .5);
+            } else {
+                flakes[i].x -= map(flakes[i].size, 1, 5, .1, .5);
+            }
+            
+            // gravity
+            flakes[i].y += flakes[i].size + flakes[i].dir;
+            
+            // if offscreen draw onscreen
+            if(flakes[i].x > width + flakes[i].size || flakes[i].x < -flakes[i].size || flakes[i].y > height + flakes[i].size) {
+                flakes[i].x = random(0, width);
+                flakes[i].y = -flakes[i].size; // draw above so it doesnt show it 'spawning in'
+            }
+            
+            }
+            
+        }
+        
+        // ---
+        // MISC //
+        // ---
+        
+        int getRRGB() {
+            return round(random(0, 255));
+        }
+    </script>
+
+    <script src="scripts/text-animate.js"></script>
+</body>
+</html>
