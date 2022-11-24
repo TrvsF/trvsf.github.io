@@ -143,7 +143,7 @@
   color: #403F00;
   font-family: Arial, Helvetica, sans-serif;
   width: auto;
-  top: 30%;
+  top: 50%;
   height: 1.3em;
   word-spacing: 0;
 }
@@ -160,21 +160,32 @@
 }
 
 #moretocome {
-  transform: rotate(-8deg);
   color: white;
-  font-size: 3em;
+  transform: rotate(-8deg);
   position: absolute;
   left: 11%;
   top: 21%;
 }
 
-#songoftheday {
-  transform: rotate(17deg);
-  color: white;
+#void-items {
   font-size: 3em;
+}
+
+#pictures a {
+  text-decoration: none;
+  color: white;
   position: absolute;
-  margin-left: 70%;
-  margin-top: 6em;
+  transform: rotate(-23deg);
+  left: 19%;
+  top: 51%;
+}
+
+#songoftheday {
+  color: white;
+  position: absolute;
+  transform: rotate(17deg);
+  left: 70%;
+  top: 6em;
 }
 
 #songoftheday a {
@@ -216,6 +227,22 @@
 
 .work-item img {
   margin-top: 10px;
+}
+
+#picz {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+#picz img {
+  padding: 8px;
+  display: inline-block;
+  object-fit: cover;
+  width: 25%;
+  height: 25%;
 }
 
 #calenderbutton {
