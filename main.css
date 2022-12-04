@@ -43,7 +43,7 @@
 
 #maintitle {
   width: 0;
-  position: relative;
+  position: absolute;
   font-size: 4em;
   animation-name: hor-movement, ver-movement;
   animation-duration: 4.141s, 4.614s;
@@ -63,10 +63,10 @@
   
 @keyframes ver-movement {
   from {
-    top: 0;
+    top: 1em;
   }
   to {
-    top: 10em;
+    top: calc(100% - 2em);
   }
 }
 
