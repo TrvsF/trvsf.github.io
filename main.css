@@ -260,7 +260,8 @@
   display: inline-block;
   object-fit: cover;
   width: 25%;
-  height: 250px;
+  max-height: 220px;
+  min-height: 100px;
 }
 
 #calenderbutton {
