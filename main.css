@@ -247,6 +247,11 @@
   margin-top: 10px;
 }
 
+.deep-back {
+  color: white;
+  font-size: 24px;
+}
+
 #picz {
   display: flex;
   margin-left: 10%;
