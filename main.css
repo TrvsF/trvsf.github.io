@@ -226,8 +226,8 @@
 #work-items {
   margin-left: 8%;
   margin-right: 8%;
-  border: 10px solid transparent;
-  border: 10px solid transparent;
+  border-style: solid;
+  border-width: 25px;
   border-image-source: url(pictures/ladybugB.png);
   border-image-repeat: round;
   border-image-slice: 33%;
