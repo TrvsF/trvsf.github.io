@@ -178,18 +178,6 @@ let colour = getRandomColor();
 document.getElementById("colouroftheday").style.backgroundColor = colour;
 document.getElementById("colouroftheday").innerHTML = colour;
 
-let calender = document.getElementById("colourcalender");
-let colourlist = getColoursSinceDate(new Date('October 19, 2022 23:15:30'));
-colourlist = colourlist.reverse();
-for (let i = 0; i < colourlist.length; i++) {
-  var inner = document.createElement("div");
-  inner.className = "calenderitem";
-  inner.style.backgroundColor = colourlist[i];
-  inner.innerHTML = colourlist[i];
-
-  calender.appendChild(inner);
-}
-
 function getRandomColor() { 
     var mt = new MersenneTwister(date.getDate() * date.getMonth() * date.getFullYear());
     return getColourFromMt(mt);
