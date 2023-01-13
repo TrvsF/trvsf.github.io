@@ -269,6 +269,10 @@
   min-height: 10%;
 }
 
+#picz img:hover {
+  transform: scale(1.7);
+}
+
 #calenderbutton {
   all: unset;
   cursor: pointer;
