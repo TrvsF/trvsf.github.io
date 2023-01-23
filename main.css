@@ -228,6 +228,7 @@
   margin-left: 8%;
   margin-right: 8%;
   border: 25px solid;
+  border-style: solid; /* #fuckapple */
      -moz-border-image: url(pictures/ladybugB.png) 33% round;       
   -webkit-border-image: url(pictures/ladybugB.png) 33% round; 
        -o-border-image: url(pictures/ladybugB.png) 33% round; 
