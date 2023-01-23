@@ -227,12 +227,11 @@
   height: intrinsic;
   margin-left: 8%;
   margin-right: 8%;
-  border-style: solid;
-  border-width: 25px;
-  -moz-border-image: url(pictures/ladybugB.png) 33% round;       
+  border: 25px solid;
+     -moz-border-image: url(pictures/ladybugB.png) 33% round;       
   -webkit-border-image: url(pictures/ladybugB.png) 33% round; 
-  -o-border-image: url(pictures/ladybugB.png) 33% round; 
-  border-image: url(pictures/ladybugB.png) 33% solid round;
+       -o-border-image: url(pictures/ladybugB.png) 33% round; 
+          border-image: url(pictures/ladybugB.png) 33% round;
   position: relative;
   font-size: 2em;
   text-align: center;
