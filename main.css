@@ -224,11 +224,13 @@
 }
 
 #work-items {
-  height: intrinsic;
+  height: intrinsic; /* #fuckapple */
   margin-left: 8%;
   margin-right: 8%;
   border-width: 25px;
   border-style: solid; /* #fuckapple */
+  border-image-repeat: round; /* #fuckapple */
+  
      -moz-border-image: url(pictures/ladybugB.png) 33% round;       
   -webkit-border-image: url(pictures/ladybugB.png) 33% round; 
        -o-border-image: url(pictures/ladybugB.png) 33% round; 
