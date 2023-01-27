@@ -128,22 +128,21 @@
 }
 
 #links a {
-  font-size: 4em;
+  font-size: 2em;
   text-decoration: none;
 }
 
 #links div {
+  left: 50%;
   bottom: 6em;
   position: fixed;
-  left: 50%;
   transform: translateX(-50%);
 }
 
-#spinny {
+.spinny {
   color: #403F00;
   font-family: Arial, Helvetica, sans-serif;
   width: auto;
-  top: 50%;
   height: 1.3em;
   word-spacing: 0;
 }

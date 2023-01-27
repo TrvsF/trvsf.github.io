@@ -19,7 +19,9 @@
         <span style="font-size: 1.53em; width: 100%;"><a href="mailto: traviseff@gmail.com">traviseff@gmail.com</a></span><br>
         <span style="font-size: 1.53em; word-spacing: 0;">(my email)</span><br>
         <span style="font-size: 1.1em; word-spacing: 0;">click it</span>
-        <div id="spinny">:D</div>
+        <div class="spinny">:D</div>
+        <div class="spinny">:D</div>
+        <div class="spinny">:D</div>
         <div class="linkssub">
             <span style="font-size: 2em;">here's some links</span><br>
             <a class="link" href="https://github.com/trvsf" target="_blank" style="text-decoration: none; color: coral;">github</a>
@@ -32,9 +34,15 @@
     <script src="scripts/text-animate.js"></script>
     <script>
         // SPINNY
-        const whitespace = document.getElementById("spinny")
+        var whitespace = document.getElementsByClassName("spinny")
+        for (var i = 0; i < whitespace.length; i++) {
+            whitespace[i].style.left = randomInt(30, 70) + "%";
+            whitespace[i].style.top = randomInt(30, 70) + "%";
+        }
         setInterval(function() {
-            whitespace.style.transform += "rotate(1.3deg)";
+            for (var i = 0; i < whitespace.length; i++) {
+                whitespace[i].style.transform += "rotate(1.3deg)";
+            }
         }, 1);
 
         // LINKS COLOUR
@@ -51,6 +59,10 @@
                 c++;
             }
             c++;
+        }
+
+        function randomInt(min, max) { 
+            return Math.floor(Math.random() * (max - min + 1) + min)
         }
     </script>
 </body>
