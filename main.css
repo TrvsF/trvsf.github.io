@@ -287,6 +287,12 @@
 
 #picz img:hover {
   transform: scale(1.7);
+  z-index: 5;
+}
+
+#picz img:not(:hover) {
+  transform: scale(1);
+  z-index: 0;
 }
 
 #calenderbutton {
