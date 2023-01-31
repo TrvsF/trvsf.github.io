@@ -300,6 +300,16 @@
   cursor: pointer;
 }
 
+.work-item .banner {
+  height: 300px;
+  width: 40%;
+  padding: 10px;
+}
+
+.work-item b {
+  font-size: 2em;
+}
+
 .gheart {
   color: hsl(4, 70%, 52%);
   font-size: 2em;
