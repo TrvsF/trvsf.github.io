@@ -300,6 +300,15 @@
   cursor: pointer;
 }
 
+#records {
+  white-space: nowrap;
+}
+
+.record {
+  list-style: none;
+  display: inline;
+}
+
 .work-item .banner {
   height: 300px;
   width: 40%;
