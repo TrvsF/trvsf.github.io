@@ -340,6 +340,28 @@
   }
 }
 
+@keyframes elmer-stomp {
+  from {
+    left: 92%;
+  }
+  to {
+    left: -10%;
+  }
+}
+
+#elmer {
+  position: absolute;
+  left: 92%;
+}
+
+#elmer:hover {
+  animation-name: elmer-stomp;
+  animation-duration: 4.141s;
+  animation-iteration-count:initial;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
 .calenderitem {
   background-color: #F9FA21;
   width: 8em;
