@@ -239,6 +239,11 @@
   text-align: center;
 }
 
+#ios-notice {
+  font-size: 24px;
+  text-align: center;
+}
+
 .work-item {
   font-family: 'henryblue';
   margin-left: 5%;

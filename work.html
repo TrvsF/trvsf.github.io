@@ -15,8 +15,10 @@
         <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
     </div>
     <br>
+    <div id="ios-notice">
+        
+    </div>
     <br>
-    
     <div id="work-items">
         <br>
         <span style="font-size: 1.5em; font-weight: bold;">projects</span><br>
@@ -131,5 +133,12 @@
     <br>
     <br>
     <script src="scripts/text-animate.js"></script>
+    <script>
+
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)) {
+            document.getElementById("ios-notice").innerHTML = "you're using ios, the ladybirds may look stretched, this is tim cook's personal fault & i'm sorry"
+        } 
+
+    </script>
 </body>
 </html>
