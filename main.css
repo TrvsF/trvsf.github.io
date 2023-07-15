@@ -260,6 +260,25 @@
   font-size: 24px;
 }
 
+.picstitle {
+  color: white;
+  font-size: 34px;
+}
+
+.albumlinks {
+  display: flex;
+  word-spacing: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.albumlinks a {
+  padding: 50px;
+  text-decoration: wavy;
+  color: white;
+  font-size: 34px;
+}
+
 #picz {
   display: flex;
   margin-left: 10%;
@@ -272,22 +291,13 @@
   padding: 8px;
   display: inline-block;
   object-fit: cover;
-  width: 25%;
-  max-height: 220px;
+  width: 15%;
+  max-height: 280px;
   min-height: 10%;
 }
 
 #clickpic:checked + #picz img {
   transform: scale(1.7);
-}
-
-#picz img {
-  padding: 8px;
-  display: inline-block;
-  object-fit: cover;
-  width: 25%;
-  max-height: 220px;
-  min-height: 10%;
 }
 
 #picz img:hover {
