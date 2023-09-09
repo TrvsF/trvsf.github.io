@@ -360,7 +360,7 @@
     left: 92%;
   }
   to {
-    left: -10%;
+    left: -100%;
   }
 }
 
@@ -372,7 +372,7 @@
 
 #elmer:hover {
   animation-name: elmer-stomp;
-  animation-duration: 4.141s;
+  animation-duration: 8s;
   animation-iteration-count:initial;
   animation-direction: normal;
   animation-timing-function: linear;
