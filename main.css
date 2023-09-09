@@ -365,8 +365,9 @@
 }
 
 #elmer {
-  position: absolute;
   left: 92%;
+  position: absolute;
+  width: 100%;
 }
 
 #elmer:hover {
@@ -375,6 +376,11 @@
   animation-iteration-count:initial;
   animation-direction: normal;
   animation-timing-function: linear;
+}
+
+#elmer img {
+  width: 100%;
+  left: 92%;
 }
 
 .calenderitem {
