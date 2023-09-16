@@ -222,10 +222,17 @@
   visibility: hidden;
 }
 
-#work-items {
+#work-d {
   height: intrinsic; /* #fuckapple */
-  margin-left: 8%;
-  margin-right: 8%;
+  position: relative;
+  font-size: 2em;
+  text-align: center;
+}
+
+#work {
+  height: intrinsic; /* #fuckapple */
+  margin-left: 20%;
+  margin-right: 20%;
   border-width: 25px;
   border-style: solid; /* #fuckapple */
   border-image-repeat: round; /* #fuckapple */
@@ -237,6 +244,29 @@
   position: relative;
   font-size: 2em;
   text-align: center;
+}
+
+#work-small {
+  height: intrinsic; /* #fuckapple */
+  margin-left: 20%;
+  margin-right: 20%;
+  border-width: 25px;
+  border-style: solid; /* #fuckapple */
+  border-image-repeat: round; /* #fuckapple */
+  
+     -moz-border-image: url(pictures/strawberry.png) 33% round;       
+  -webkit-border-image: url(pictures/strawberry.png) 33% round; 
+       -o-border-image: url(pictures/strawberry.png) 33% round; 
+          border-image: url(pictures/strawberry.png) 33% round;
+  position: relative;
+  font-size: 2em;
+  text-align: center;
+}
+
+#work-items {
+  border-width: 25px;
+  border-style: solid; /* #fuckapple */
+  border-image-repeat: round; /* #fuckapple */
 }
 
 #ios-notice {
