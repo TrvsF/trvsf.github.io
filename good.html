@@ -108,6 +108,15 @@
     }
 
     // ------------------------------------------
+    // preload
+    function preload(array) {
+        for (let i = 0; i < images.length; i++) {
+            const img = new Image();
+            img.src = images[i];
+        }
+    }
+
+    // ------------------------------------------
     // display image logic
     const images = [
         "pictures/camera/goodone/1.jpg",
@@ -124,6 +133,7 @@
         "pictures/camera/goodone/12.jpg",
     ];
     shuffle(images)
+    preload(images)
 
     let currentIndex = 0;
 
