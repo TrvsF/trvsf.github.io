@@ -1,10 +1,9 @@
     // ------------------------------------------
     // in
     function picz(array) {
-        images = array
-        shuffle(images)
-        preload(images)
-        showImage();
+        images = array;
+        shuffle(images);
+        preload(images);
     }
 
     // ------------------------------------------
