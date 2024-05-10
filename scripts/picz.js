@@ -4,6 +4,8 @@
         images = array;
         shuffle(images);
         preload(images);
+        
+        showImage();
     }
 
     // ------------------------------------------
