@@ -1,92 +1,67 @@
-    // ------------------------------------------
-    // in
+ 
+//? // ---------------------
+    // global scope (scary)
+    var Images = [];
+    let CurrentImageIndex = 0;
+    let MaxIndex = -1;
+    let LoadedIndex = -1;
+//?
+    const ImageElement = document.getElementById('current_image');
+    const PrevButtonElement = document.getElementById('prev_button');
+    const NextButtonElement = document.getElementById('next_button');
+//? // ---------------------
+    // events
+    PrevButtonElement.addEventListener('click', () => {
+        const isFirstElement = CurrentImageIndex === 0;
+        CurrentImageIndex = isFirstElement ? Images.length - 1 : CurrentImageIndex - 1;
+        SetImage();
+    });
+
+    NextButtonElement.addEventListener('click', () => {
+        const isLastElement = CurrentImageIndex === Images.length - 1;
+        CurrentImageIndex = isLastElement ? 0 : CurrentImageIndex + 1;
+        SetImage();
+    });  
+//? // ---------------------
+    // methods
     function picz(array) {
-        images = array;
-        shuffle(images);
-        preload(images);
-        
-        showImage();
+        Images = array;
+        MaxIndex = Images.length;
+        LoadedIndex = 0;
+
+        Shuffle(Images);
+
+        Promise.all(Images.map(Preload)).then(() => {
+            SetImage();
+        }).catch((error) => {/** BLEH :P */});
     }
 
-    // ------------------------------------------
-    // shuffle
-    function shuffle(array) {
-        let currentIndex = array.length;
+    function Shuffle(array) {
+        let CurrentImageIndex = array.length;
 
-        // While there remain elements to shuffle...
-        while (currentIndex != 0) {
+        // While there remain elements to Shuffle...
+        while (CurrentImageIndex != 0) {
 
             // Pick a remaining element...
-            let randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
+            let randomIndex = Math.floor(Math.random() * CurrentImageIndex);
+            CurrentImageIndex--;
 
             // And swap it with the current element.
-            [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
+            [array[CurrentImageIndex], array[randomIndex]] = [
+            array[randomIndex], array[CurrentImageIndex]];
         }
     }
 
-    // ------------------------------------------
-    // preload
-    function preload(array) {
-        for (let i = 0; i < array.length; i++) {
+    function Preload(url) {
+        return new Promise((resolve, reject) => {
             const img = new Image();
-            img.src = array[i];
-        }
+            img.onload = () => resolve(url);
+            img.onerror = reject;
+            img.src = url;
+        });
+    }   
+
+    function SetImage() {
+        ImageElement.src = Images[CurrentImageIndex];
     }
-
-    // ------------------------------------------
-    // display image logic
-    var images = [];
-    let currentIndex = 0;
-
-    const imageElement = document.getElementById('myImage');
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
-
-    function showImage() {
-        imageElement.src = images[currentIndex];
-    }
-
-    prevButton.addEventListener('click', () => {
-        const isFirstElement = currentIndex === 0;
-        currentIndex = isFirstElement ? images.length - 1 : currentIndex - 1;
-        showImage();
-
-        console.log(currentIndex);
-    });
-
-    nextButton.addEventListener('click', () => {
-        const isLastElement = currentIndex === images.length - 1;
-        currentIndex = isLastElement ? 0 : currentIndex + 1;
-        showImage();
-
-        console.log(currentIndex);
-    });
-
-    // ------------------------------------------
-    // jqery (?) zoom
-    // pastey paste paste ( ͡° ͜ʖ ͡°)
-    // $(".img_producto_container")
-    // // tile mouse actions
-    // .on("mouseover", function() {
-    //     $(this)
-    //     .children(".img_producto")
-    //     .css({ transform: "scale(" + $(this).attr("data-scale") + ")" });
-    // })
-    // .on("mouseout", function() {
-    //     $(this)
-    //     .children(".img_producto")
-    //     .css({ transform: "scale(1)" });
-    // })
-    // .on("mousemove", function(e) {
-    //     $(this)
-    //     .children(".img_producto")
-    //     .css({
-    //         "transform-origin":
-    //         ((e.pageX - $(this).offset().left) / $(this).width()) * 100 +
-    //         "% " +
-    //         ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +
-    //         "%"
-    //     });
-    // });
+//?
