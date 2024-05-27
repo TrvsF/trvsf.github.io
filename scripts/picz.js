@@ -35,7 +35,7 @@
             SetImage();
         }).catch((error) => {/** BLEH :P */});
     }
-
+//?
     function Shuffle(array) {
         let CurrentImageIndex = array.length;
 
@@ -51,7 +51,7 @@
             array[randomIndex], array[CurrentImageIndex]];
         }
     }
-
+//?
     function Preload(url) {
         return new Promise((resolve, reject) => {
             const img = new Image();
@@ -60,7 +60,7 @@
             img.src = url;
         });
     }   
-
+//?
     function SetImage() {
         ImageElement.src = Images[CurrentImageIndex];
     }
