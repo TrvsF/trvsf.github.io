@@ -29,9 +29,9 @@
     // ------------------------------------------
     // preload
     function preload(array) {
-        for (let i = 0; i < images.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             const img = new Image();
-            img.src = images[i];
+            img.src = array[i];
         }
     }
 
