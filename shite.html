@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travis</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
+</head>
+<body style="background-color:white;">
+    <style>
+        img 
+        {
+            margin-top: 40px;
+            width: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 656px;
+            max-width: 80%;
+        }
+        
+        .arrows
+        {
+            font-size: 4em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left
+        .right
+        {
+            position: absolute;
+            
+        }
+
+        .right
+        {
+            cursor: pointer;
+            padding-right: 50px;
+        }
+
+        .left
+        {
+            cursor: pointer;
+            padding-left: 50px;
+        }
+    </style>
+
+    <div id="nav">
+        <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
+    </div>
+
+    <div class="arrows">
+        <div class="left" id="prev_button">
+            l
+        </div>
+        <div class="right" id="next_button">
+            r
+        </div>
+    </div>
+    <div class="img_producto_container" data-scale="1.6">
+       <img id="current_image" src="pictures/camera/wait.jpg" alt="" class="img_producto_container img_producto" >
+    </div>
+    
+    <div id="nav">
+        <a id="navel" href="picz.html">back</a>
+    </div>
+    
+    <script src="scripts/picz.js"></script>
+    <script>
+    let picz_arr = [
+        "pictures/camera/shite/1.jpg",
+        "pictures/camera/shite/2.jpg",
+        "pictures/camera/shite/3.jpg",
+        "pictures/camera/shite/4.jpg",
+        "pictures/camera/shite/5.jpg",
+        "pictures/camera/shite/6.jpg",
+        "pictures/camera/shite/7.jpg",
+        "pictures/camera/shite/8.jpg",
+        "pictures/camera/shite/9.jpg",
+        "pictures/camera/shite/10.jpg",
+        "pictures/camera/shite/11.jpg",
+        "pictures/camera/shite/12.jpg",
+        "pictures/camera/shite/13.jpg",
+        "pictures/camera/shite/14.jpg",
+        "pictures/camera/shite/15.jpg",
+        "pictures/camera/shite/16.jpg",
+    ];
+    picz(picz_arr)
+    </script>
+    <script src="scripts/text-animate.js"></script>
+</body>
+</html>
