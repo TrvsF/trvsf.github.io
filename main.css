@@ -179,6 +179,15 @@
   top: 12%;
 }
 
+#hell a {
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  transform: rotate(9deg);
+  left: 53%;
+  top: 60%;
+}
+
 #pictures a {
   text-decoration: none;
   color: white;
