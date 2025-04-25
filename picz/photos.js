@@ -351,7 +351,6 @@ const picz_outros = [
     "the information",
 ];
 
-const PreloadedImages = [];
 var Images = [];
 let CurrentImageIndex = 0;
 let MaxIndex = -1;
@@ -364,10 +363,16 @@ const OutroElement = document.getElementById('picz-outro');
 
 function picz(array) {
     Images = array;
-    MaxIndex = Images.length;    
+    MaxIndex = Images.length;
+    LoadedIndex = 0;
 
     Shuffle(Images);
 }
+
+function PreloadImage(url) {
+    const img = new Image();
+    img.src = url;
+  }
 
 function Shuffle(array) {
     let CurrentImageIndex = array.length;
@@ -385,6 +390,9 @@ function SetImage() {
     ImageElement.src = Images[CurrentImageIndex];
     IntroElement.innerHTML = GetRandomElementFromList(picz_intros);
     OutroElement.innerHTML = GetRandomElementFromList(picz_outros);
+
+    PreloadImage(Images[CurrentImageIndex + 1]);
+    PreloadImage(Images[CurrentImageIndex - 1]);
 }
 
 function NextImage() {
