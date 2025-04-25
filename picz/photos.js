@@ -1,4 +1,4 @@
-let picz_arr = [
+const picz_arr = [
     "photographs/2024-07-09-0001.jpg",
     "photographs/2024-07-09-0002.jpg",
     "photographs/2024-07-09-0005.jpg",
@@ -122,6 +122,44 @@ let picz_arr = [
     "photographs/scan0033.jpg"
 ];
 
+const picz_intros = [
+    "this describes",
+    "we love",
+    "you should feel",
+    "this invokes",
+    "i see",
+    "you must see",
+    "perceive",
+    "photographs show",
+    "do you see",
+    "come see",
+    "show me",
+    "show us",
+    "program us",
+    "give us",
+    "do i feel",
+    "do you feel",
+    "do you love",
+    "do we think",
+];
+
+const picz_outros = [
+    "large feelings",
+    "eachother",
+    "the dread",
+    "small feelings",
+    "yourself",
+    "things you care for",
+    "dreams",
+    "the hurt",
+    "saddness",
+    "waste",
+    "numbness",
+    "sorrow",
+    "joy",
+    "the information",
+];
+
 var Images = [];
 let CurrentImageIndex = 0;
 let MaxIndex = -1;
@@ -129,6 +167,8 @@ let LoadedIndex = -1;
 const ImageElement = document.getElementById('picz-img');
 const PrevButtonElement = document.getElementById('prev_button');
 const NextButtonElement = document.getElementById('next_button');
+const IntroElement = document.getElementById('picz-intro');
+const OutroElement = document.getElementById('picz-outro');
 
 function picz(array) {
     Images = array;
@@ -141,14 +181,10 @@ function picz(array) {
 function Shuffle(array) {
     let CurrentImageIndex = array.length;
 
-    // While there remain elements to Shuffle...
     while (CurrentImageIndex != 0) {
-
-        // Pick a remaining element...
         let randomIndex = Math.floor(Math.random() * CurrentImageIndex);
         CurrentImageIndex--;
 
-        // And swap it with the current element.
         [array[CurrentImageIndex], array[randomIndex]] = [
         array[randomIndex], array[CurrentImageIndex]];
     }
@@ -156,13 +192,29 @@ function Shuffle(array) {
 
 function SetImage() {
     ImageElement.src = Images[CurrentImageIndex];
+    IntroElement.innerHTML = GetRandomElementFromList(picz_intros);
+    OutroElement.innerHTML = GetRandomElementFromList(picz_outros);
 }
 
-// NextButtonElement.addEventListener('click', () => {
-//     const isLastElement = CurrentImageIndex === Images.length - 1;
-//     CurrentImageIndex = isLastElement ? 0 : CurrentImageIndex + 1;
-//     SetImage();
-// });  
+function NextImage() {
+    const isFirstElement = CurrentImageIndex === 0;
+    CurrentImageIndex = isFirstElement ? Images.length - 1 : CurrentImageIndex - 1;
+}
+
+function PrevImage() {
+    const isLastElement = CurrentImageIndex === Images.length - 1;
+    CurrentImageIndex = isLastElement ? 0 : CurrentImageIndex + 1;
+}
+
+PrevButtonElement.addEventListener('click', () => {
+    NextImage();
+    SetImage();
+});
+
+NextButtonElement.addEventListener('click', () => {
+    PrevImage();
+    SetImage();
+});  
 
 document.addEventListener('keydown', (event) => {
     switch (event.code) {
@@ -178,6 +230,14 @@ document.addEventListener('keydown', (event) => {
             break;
     }
 });
+
+function RandomInt(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function GetRandomElementFromList(list) {
+    return list[RandomInt(0, list.length-1)]
+}
 
 picz(picz_arr);
 SetImage();

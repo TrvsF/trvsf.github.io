@@ -11,52 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> 
 </head>
 <body style="background-color:white;">
+    <style>
+        * {
+            overflow: hidden;
+        }
+    </style>
+    
     <div id="nav">
         <a id="navel" href="../index.html" style="text-decoration: none;">.ooo</a>
     </div>
 
-        <div class="picz-title">
-            <img id="picz-img" src="photographs/2024-09-28-0001.jpg" alt="">
+    <div class="picz-title">
+        <img id="picz-img" src="photographs/2024-09-28-0001.jpg" alt="">
+        <div class="picz-sub">
+            <div id="picz-intro">this describes</div>
+            &nbsp;
+            <div id="picz-outro">large feelings</div>
         </div>
-<!-- 
-        <div class="arrows">
-            <div class="left" id="prev_button">
-                l
-            </div>
-            <div class="right" id="next_button">
-                r
-            </div>
-        </div> -->
-
-        <style>.arrows
-            {
-                font-size: 4em;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-    
-            .left
-            .right
-            {
-                position: absolute;
-                
-            }
-    
-            .right
-            {
-                cursor: pointer;
-                padding-right: 50px;
-            }
-    
-            .left
-            {
-                cursor: pointer;
-                padding-left: 50px;
-            }</style>
+    </div>
+ 
+    <div class="picz-arrows">
+        <div class="picz-left" id="prev_button">L</div>
+        <div class="picz-right" id="next_button">R</div>
+    </div>
 
     <script src="../scripts/text-animate.js"></script>
-
     <script src="photos.js"></script>
 </body>
 </html>
