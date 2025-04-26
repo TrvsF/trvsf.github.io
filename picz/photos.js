@@ -354,7 +354,6 @@ const picz_outros = [
 var Images = [];
 let CurrentImageIndex = 0;
 let MaxIndex = -1;
-let LoadedIndex = -1;
 const ImageElement = document.getElementById('picz-img');
 const PrevButtonElement = document.getElementById('prev_button');
 const NextButtonElement = document.getElementById('next_button');
@@ -364,15 +363,9 @@ const OutroElement = document.getElementById('picz-outro');
 function picz(array) {
     Images = array;
     MaxIndex = Images.length;
-    LoadedIndex = 0;
 
     Shuffle(Images);
 }
-
-function PreloadImage(url) {
-    const img = new Image();
-    img.src = url;
-  }
 
 function Shuffle(array) {
     let CurrentImageIndex = array.length;
@@ -386,13 +379,28 @@ function Shuffle(array) {
     }
 }
 
-function SetImage() {
-    ImageElement.src = Images[CurrentImageIndex];
-    IntroElement.innerHTML = GetRandomElementFromList(picz_intros);
-    OutroElement.innerHTML = GetRandomElementFromList(picz_outros);
+let PreloadIndex = 1;
 
-    PreloadImage(Images[CurrentImageIndex + 1]);
+function SetImage() {
+    PreloadIndex = 1;
+
+    ImageElement.src = Images[CurrentImageIndex];
+    IntroElement.innerHTML = '"' + GetRandomElementFromList(picz_intros);
+    OutroElement.innerHTML = GetRandomElementFromList(picz_outros) + '"';
+
+    PreloadImage(CurrentImageIndex + PreloadIndex);
     PreloadImage(Images[CurrentImageIndex - 1]);
+}
+
+function PreloadImage(index) {
+    const PreloadImg = new Image();
+    PreloadImg.src = Images[index];
+    PreloadImg.onload = () => CyclePreloadIndex();
+}
+
+function CyclePreloadIndex() {
+    PreloadIndex++;
+    PreloadImage(CurrentImageIndex + PreloadIndex);
 }
 
 function NextImage() {
