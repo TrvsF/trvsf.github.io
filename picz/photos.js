@@ -351,6 +351,7 @@ const picz_outros = [
     "the information",
 ];
 
+var LoadedImgNames = [];
 var Images = [];
 let CurrentImageIndex = 0;
 let MaxIndex = -1;
@@ -379,28 +380,44 @@ function Shuffle(array) {
     }
 }
 
+let ShouldCycle = false;
 let PreloadIndex = 1;
 
 function SetImage() {
     PreloadIndex = 1;
+    ShouldCycle = false;
 
     ImageElement.src = Images[CurrentImageIndex];
     IntroElement.innerHTML = '"' + GetRandomElementFromList(picz_intros);
     OutroElement.innerHTML = GetRandomElementFromList(picz_outros) + '"';
 
-    PreloadImage(CurrentImageIndex + PreloadIndex);
-    PreloadImage(Images[CurrentImageIndex - 1]);
+    PreloadImage(CurrentImageIndex + PreloadIndex, true);
+    PreloadImage(Images[CurrentImageIndex - 1], false);
 }
 
-function PreloadImage(index) {
+function PreloadImage(index, shouldchainpreload) {
+    let ImgName = Images[index];
+    if (LoadedImgNames.includes(ImgName)) {
+        return;
+    }
+
     const PreloadImg = new Image();
-    PreloadImg.src = Images[index];
-    PreloadImg.onload = () => CyclePreloadIndex();
+    PreloadImg.src = ImgName;
+    LoadedImgNames.push(ImgName);
+
+    if (shouldchainpreload) {
+        ShouldCycle = true;
+        PreloadImg.onload = () => CyclePreloadIndex();
+    }
 }
 
 function CyclePreloadIndex() {
+    if (!ShouldCycle) {
+        return;
+    }
+
     PreloadIndex++;
-    PreloadImage(CurrentImageIndex + PreloadIndex);
+    PreloadImage(CurrentImageIndex + PreloadIndex, true);
 }
 
 function NextImage() {
