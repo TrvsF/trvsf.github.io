@@ -354,7 +354,6 @@ const picz_intros = [
     "do you love",
     "do we think",
     "think of",
-    "care against",
     "lie for",
     "destroy",
     "ignore",
@@ -376,7 +375,6 @@ const picz_outros = [
     "joy",
     "the information",
     "hate",
-    "things you know are worth",
     "value",
 ];
 
