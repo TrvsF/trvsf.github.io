@@ -226,7 +226,16 @@
   position: absolute;
   transform: rotate(9deg);
   left: 53%;
-  top: 60%;
+  top: 50%;
+}
+
+#film a {
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  transform: rotate(-9deg);
+  left: 47%;
+  top: 75%;
 }
 
 #pictures a {
