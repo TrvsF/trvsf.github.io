@@ -528,3 +528,29 @@
   display: inline;
   z-index: 99;
 }
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  padding-left: 9em;
+  padding-right: 6em;
+}
+
+.gallery-img {
+  flex-shrink: 0;
+  width: 5em;
+  height: 5em;
+  object-fit: cover;
+  display: block;
+}
+
+.picz-back2back {
+  position: fixed;
+  bottom: 1em;
+  left: 20%;
+  transform: translateX(-20%);
+  z-index: 20;
+  font-size: 1.5em;
+}

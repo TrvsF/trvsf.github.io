@@ -702,12 +702,14 @@ function SetImage() {
     PreloadIndex = 1;
     ShouldCycle = false;
 
-    ImageElement.src = Images[CurrentImageIndex];
-    IntroElement.innerHTML = '"' + GetRandomElementFromList(picz_intros);
-    OutroElement.innerHTML = GetRandomElementFromList(picz_outros) + '"';
-
-    PreloadImage(CurrentImageIndex + PreloadIndex, true);
-    PreloadImage(Images[CurrentImageIndex - 1], false);
+    if (ImageElement) {
+        ImageElement.src = Images[CurrentImageIndex];
+        IntroElement.innerHTML = '"' + GetRandomElementFromList(picz_intros);
+        OutroElement.innerHTML = GetRandomElementFromList(picz_outros) + '"';
+    
+        PreloadImage(CurrentImageIndex + PreloadIndex, true);
+        PreloadImage(Images[CurrentImageIndex - 1], false);
+    }
 }
 
 function PreloadImage(index, shouldchainpreload) {
@@ -745,30 +747,84 @@ function PrevImage() {
     CurrentImageIndex = isLastElement ? 0 : CurrentImageIndex + 1;
 }
 
-PrevButtonElement.addEventListener('click', () => {
-    NextImage();
-    SetImage();
-});
+const gallery = document.getElementById("gallery");
 
-NextButtonElement.addEventListener('click', () => {
-    PrevImage();
-    SetImage();
-});  
+const PageSize = 48;
+let CurrentPage = 0;
+const PageCount = Math.ceil(picz_arr.length / PageSize);
 
-document.addEventListener('keydown', (event) => {
-    switch (event.code) {
-        case "ArrowRight":
-            const isLastElement = CurrentImageIndex === Images.length - 1;
-            CurrentImageIndex = isLastElement ? 0 : CurrentImageIndex + 1;
-            SetImage();
-            break;
-        case "ArrowLeft":
-            const isFirstElement = CurrentImageIndex === 0;
-            CurrentImageIndex = isFirstElement ? Images.length - 1 : CurrentImageIndex - 1;
-            SetImage();
-            break;
-    }
-});
+function RenderGalleryPage() {
+    gallery.innerHTML = "";
+
+    const start = CurrentPage * PageSize;
+    picz_arr.slice(start, start + PageSize).forEach(src => {
+        const a = document.createElement("a");
+        a.href = src;
+        a.target = "_blank";
+
+        a.appendChild(MakeThumb(src, 320));
+        gallery.appendChild(a);
+    });
+}
+
+function MakeThumb(src, size) {
+    const canvas = document.createElement("canvas");
+    canvas.className = "gallery-img";
+    canvas.width = size;
+    canvas.height = size;
+
+    const loader = new Image();
+    loader.onload = () => {
+        const ctx = canvas.getContext("2d");
+        // crop to square, like object-fit: cover
+        const s = Math.min(loader.width, loader.height);
+        const sx = (loader.width - s) / 2;
+        const sy = (loader.height - s) / 2;
+        ctx.drawImage(loader, sx, sy, s, s, 0, 0, size, size);
+    };
+    loader.src = src;
+
+    return canvas;
+}
+
+if (gallery) {
+    RenderGalleryPage();
+
+    PrevButtonElement?.addEventListener('click', () => {
+        CurrentPage = (CurrentPage - 1 + PageCount) % PageCount;
+        RenderGalleryPage();
+    });
+
+    NextButtonElement?.addEventListener('click', () => {
+        CurrentPage = (CurrentPage + 1) % PageCount;
+        RenderGalleryPage();
+    });
+} else if (PrevButtonElement && NextButtonElement) {
+    PrevButtonElement.addEventListener('click', () => {
+        NextImage();
+        SetImage();
+    });
+
+    NextButtonElement.addEventListener('click', () => {
+        PrevImage();
+        SetImage();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        switch (event.code) {
+            case "ArrowRight":
+                const isLastElement = CurrentImageIndex === Images.length - 1;
+                CurrentImageIndex = isLastElement ? 0 : CurrentImageIndex + 1;
+                SetImage();
+                break;
+            case "ArrowLeft":
+                const isFirstElement = CurrentImageIndex === 0;
+                CurrentImageIndex = isFirstElement ? Images.length - 1 : CurrentImageIndex - 1;
+                SetImage();
+                break;
+        }
+    });
+}
 
 function RandomInt(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
