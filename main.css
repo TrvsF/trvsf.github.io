@@ -549,8 +549,7 @@
 .picz-back2back {
   position: fixed;
   bottom: 1em;
-  left: 20%;
-  transform: translateX(-20%);
+  left: 1em;
   z-index: 20;
   font-size: 1.5em;
 }
