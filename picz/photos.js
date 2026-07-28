@@ -640,6 +640,9 @@ const picz_intros = [
     "lie for",
     "destroy",
     "ignore",
+    "defy",
+    "hate",
+    "don't forget",
 ];
 
 const picz_outros = [
@@ -659,6 +662,8 @@ const picz_outros = [
     "the information",
     "hate",
     "value",
+    "that man",
+    "her",
 ];
 
 var LoadedImgNames = [];
