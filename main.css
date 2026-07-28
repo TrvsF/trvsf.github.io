@@ -540,8 +540,8 @@
 
 .gallery-img {
   flex-shrink: 0;
-  width: 5em;
-  height: 5em;
+  width: 64px;
+  height: 64px;
   object-fit: cover;
   display: block;
 }
