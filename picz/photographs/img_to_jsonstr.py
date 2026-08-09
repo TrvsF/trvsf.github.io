@@ -1,35 +1,104 @@
+#!/usr/bin/env python3
+
+import json
 import os
-from PIL import Image
+import re
+import sys
 
-MAX_SIZE = (800, 800)   # max width/height of the downsized copies, tweak as needed
+from PIL import Image, ImageOps
+
+MAX_SIZE = (800, 800)
 JPEG_QUALITY = 85
+EXTENSIONS = (".jpg", ".jpeg")
+WEB_PREFIX = "photographs"
+DATA_FILE = "picz-data.js"
 
-def base(f):
-    return os.path.splitext(f)[0]
+FORCE = "--force" in sys.argv
 
-# skip any existing "-down" files so re-running doesn't create name-down-down.jpg
-jpg_files = sorted(
-    [
-        f for f in os.listdir('.')
-        if f.lower().endswith('.jpg') and not base(f).lower().endswith('-down')
-    ],
-    key=lambda x: int(base(x)) if base(x).isdigit() else x
-)
 
-small_files = []
-for f in jpg_files:
-    name, ext = os.path.splitext(f)
-    small_name = f"{name}-down{ext}"
-    with Image.open(f) as img:
-        img.thumbnail(MAX_SIZE, Image.LANCZOS)  # keeps aspect ratio, only shrinks
-        img.save(small_name, quality=JPEG_QUALITY, optimize=True)
-    small_files.append(small_name)
+def base(filename):
+    return os.path.splitext(filename)[0]
 
-full_paths = [f'"photographs/{f}"' for f in jpg_files]
-small_paths = [f'"photographs/{f}"' for f in small_files]
 
-js_array = "const picz_arr = [\n    " + ",\n    ".join(full_paths) + "\n];"
-js_small_array = "const picz_small_arr = [\n    " + ",\n    ".join(small_paths) + "\n];"
+def is_downsized(filename):
+    """Skip existing -down files so re-running doesn't make name-down-down.jpg."""
+    return base(filename).lower().endswith("-down")
 
-with open('output.txt', 'w', encoding='utf-8') as f:
-    f.write(js_array + "\n\n" + js_small_array + "\n")
+
+def sort_key(filename):
+    return tuple(
+        (1, int(part)) if part.isdigit() else (0, part)
+        for part in re.split(r"(\d+)", base(filename))
+    )
+
+
+def is_stale(source, thumb):
+    if FORCE or not os.path.exists(thumb):
+        return True
+    return os.path.getmtime(thumb) < os.path.getmtime(source)
+
+
+def downsize(source, thumb):
+    with Image.open(source) as img:
+        img = ImageOps.exif_transpose(img)
+
+        if img.mode not in ("RGB", "L", "CMYK"):
+            img = img.convert("RGB")
+
+        img.thumbnail(MAX_SIZE, Image.LANCZOS)
+        img.save(
+            thumb,
+            format="JPEG",
+            quality=JPEG_QUALITY,
+            optimize=True,
+            icc_profile=img.info.get("icc_profile"),
+        )
+
+
+def js_array(name, files):
+    if not files:
+        return f"const {name} = [];"
+    entries = ",\n    ".join(json.dumps(f"{WEB_PREFIX}/{f}") for f in files)
+    return f"const {name} = [\n    {entries}\n];"
+
+
+def main():
+    jpg_files = sorted(
+        (
+            f
+            for f in os.listdir(".")
+            if f.lower().endswith(EXTENSIONS)
+            and not is_downsized(f)
+            and os.path.isfile(f)
+        ),
+        key=sort_key,
+    )
+
+    full_files = []
+    small_files = []
+    built = 0
+
+    for f in jpg_files:
+        name, ext = os.path.splitext(f)
+        small_name = f"{name}-down{ext}"
+
+        try:
+            if is_stale(f, small_name):
+                downsize(f, small_name)
+                built += 1
+        except Exception as exc:
+            print(f"skipping {f}: {exc}", file=sys.stderr)
+            continue
+
+        full_files.append(f)
+        small_files.append(small_name)
+
+    with open(DATA_FILE, "w", encoding="utf-8") as out:
+        out.write(js_array("picz_arr", full_files) + "\n\n")
+        out.write(js_array("picz_small_arr", small_files) + "\n")
+
+    print(f"{len(full_files)} photos, {built} thumbnails built, wrote {DATA_FILE}")
+
+
+if __name__ == "__main__":
+    main()
