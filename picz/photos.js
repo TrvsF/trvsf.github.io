@@ -157,7 +157,7 @@ function StepImage(delta) {
 
 const gallery = document.getElementById("gallery");
 
-const PageSize = 48;
+const PageSize = 24;
 let CurrentPage = 0;
 const PageCount = Math.max(1, Math.ceil(SmallSizeList.length / PageSize));
 
