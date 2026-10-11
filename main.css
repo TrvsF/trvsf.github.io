@@ -563,3 +563,55 @@
 .picz-arrows .picz-right {
   pointer-events: auto;
 }
+
+:root {
+  --poem-font: "EB Garamond", Garamond, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --poem-ink: #1d1c1a;
+}
+
+.poem {
+  position: relative;
+  box-sizing: border-box;
+  width: min(38rem, 74%);
+  max-height: calc(100vh - 9rem);
+  max-height: calc(100dvh - 9rem);
+  margin: 1.5rem auto 0;
+  padding: 0 0.25rem 1.5rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d6d2ca transparent;
+  font-family: var(--poem-font);
+  color: var(--poem-ink);
+}
+
+.poem * {
+  color: inherit;
+}
+
+.poem-body {
+  padding-top: 4.15rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  tab-size: 4;
+  font-variant-ligatures: common-ligatures;
+  hyphens: manual;
+}
+
+.poem-line {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+.poem-line.is-blank::before {
+  content: "\00a0";
+}
+
+@media (max-width: 600px) {
+  .poem-body {
+    padding-top: 3.67rem;
+    font-size: 1.1rem;
+  }
+}
