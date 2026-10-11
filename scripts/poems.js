@@ -415,7 +415,7 @@
         like another flower ripped from his stalk
         
         but it's the most priceless flower, you love her
-        she slows you, while almost kissing
+        she slows you, whilst almost kissing
         & you ring out your swollen throats
         & she tells you hers, while going missing
         
