@@ -381,7 +381,7 @@
     {
       text: `
         buys paint from the shop
-        while the sheetpath lies with piano ontop
+        while the streetpath lies with piano ontop
         & you just can't believe the playing's stopped
         piercing the skin all around you
 
@@ -612,6 +612,21 @@
         after last night's trip to the parking lot
         but neither of them are able to
         spot me
+
+        & the commisioned man
+        waves his spoons in hand
+        trying to very quickly
+        to understand
+        why he's lonely
+
+        while the little girl
+        in her whirlpool world
+        grunts & moans
+        breaks herself with stones
+        to become free
+
+        i can't understand why they won't come 4 me
+        but we all, we all understand totally
       `,
     },
     {
