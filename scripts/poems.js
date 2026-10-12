@@ -434,7 +434,7 @@
       text: `
         she takes to the letters
         like a bull 2 a flame
-        & after wwaking up in sweets
+        & after waking up in sweets
         feels so very lame
 
         you see for a moment
