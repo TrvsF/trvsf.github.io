@@ -1038,7 +1038,7 @@
         to push down on the throat, make some proper tune
         whose waves'll be felt for days
         like a dying liver, or a failed love
-        the feeling a strangling a heart-breasted dove
+        the feeling of strangling a heart-breasted dove
       `,
     },
     {
