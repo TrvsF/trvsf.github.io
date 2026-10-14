@@ -1242,7 +1242,7 @@
         for his next meal & to concure the weak
         frail is brittle & love is long
         true desire is to sing good song
-        true pleasure is deire to be strong
+        true pleasure is desire to be strong
       `,
     },
     {
