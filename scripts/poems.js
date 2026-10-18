@@ -1540,6 +1540,547 @@
         is slavery
       `,
     },
+    {
+      text: `
+        if i had a loving hand
+        would she strike me clean
+        could say she what was meant
+        maybe meant that is said
+        horrifically mean
+        compleatly unseen
+      `,
+    },
+    {
+      text: `
+        knock me out
+        4 oldtimes sake
+        & i'll never make the same mistake
+        we'll never make the same mistake
+
+        i see the lines on ur perfect face
+        a queue forms for the others to race
+        the hurricane picks up at such a pace
+        but there is no case to win u back
+        it's just a silly self-attack
+
+        there's no time for this i know i know
+        but then what's driving ur thickal libido
+        & who's that riding in ur car- oh
+        there's hope though, if we both fast
+        our bodies will last- no
+      `,
+    },
+    {
+      text: `
+        i open eyes
+        after visiting most ways
+        those i dispise
+        & that'll have both sways
+        but nothing i seek
+        that which'll hold me allways
+        she's asleep
+        i cannot control her these days
+        so i feel
+        nothing real
+        even a call
+        from a far away field
+        by the one
+        whose lived 3 lives
+        must curl up
+        & pass aside
+
+        but i'm alive
+        & i am able
+        a lone knight
+        from a daytime fable
+        my enemies wide
+        carries many noses & hide
+        & grows to many my size
+        while i walk around
+        to find a place to hide
+        a simple task
+        but not well last
+        
+        for my final act
+        an attack, on the crack
+        when i see that
+        in open air
+        i'll thrust in bare
+        find a chair
+        lay & stare 
+      `,
+    },
+    {
+      text: `
+        welcome member
+        my throbbing ghost
+        tourched thru touching
+        spoken devil toast
+
+        my lord a buried beaut
+        a ghost akin to a neut
+        his shrunken shining tail
+        your gold & lusted whale
+        tells the tale, of another fail
+      `,
+    },
+    {
+      text: `
+        past the blueish glow
+        a square in the dying sky, so cold
+        it's pure whites pierce any leftover soul
+        that sky with its whispering tones
+        of anteraurge & a life that only
+        such a man knows
+        
+        but this sky a woman
+        who comforts & holds
+      `,
+    },
+    {
+      text: `
+        but now there are no roads
+        not travelled by tired minds, who cannot explain
+        why it may be or why they're in so much pain
+      `,
+    },
+    {
+      text: `
+        or could it be, are they over there
+        past the birds i never fed
+        past the drums of waste
+        that time too early
+        time to paste
+      `,
+    },
+    {
+      text: `
+        your words are read
+        a voice mangled
+        & a head put to rest
+
+        a bite on my rest
+        lifts the scars on my chest
+        to tune of bert & blessed
+
+        a dance put on by the silhouettes of babies
+        of animals who long before us left the path
+        just bare enough to tred upon
+        with hooves of dust & jets of love
+        those tubes hadth just betreyed
+        those inside the caves
+        so we dig up their crude bodies
+        & put their eyes in the shade
+      `,
+    },
+    {
+      text: `
+        what lives up those stairs
+        within the door, whose white
+        stands bare, & i picture it open
+        & her hair hangs out, quite
+        the unpleasent sight
+        my face pulls
+        as she lulls
+        & stares & pushes
+        herself back from the light of my room
+
+        in that tomb i call, blue spots form on the wall
+        & it's percieved again i'm not too tall
+        so i take out my palms & begin to crawl
+
+        now the door left open, i hear it talk
+        "go pluck a flower, choose any stalk"
+        while i'm taking the oposite of a nice long walk
+        the tempting hindge, leaves me on the frindge
+        one so bare, but if you are there
+        don't stew
+        it's just me & you 
+      `,
+    },
+    {
+      text: `
+        i taste the day, it tastes away
+        as if to say. have another
+        i'm riding that way, the hooves are loose
+        my blood is power, my body is weak
+        
+        & if i do burst as it may seem
+        promise to being me out & reem
+        hold me end to end like a medevil freak
+        tell the procession i was never weak
+      `,
+    },
+    {
+      text: `
+        out on the webbed wall
+        pass planted flowers play
+        i gift you a football
+        but you've thrown the boots away
+        & now i say
+        in echo'd wind
+        with head agape
+        lust flowing in
+        better than running out?
+        to greet a lover, have a mount
+        why pour water from the same stout
+        just keep her hair glued to the mouth
+
+        but one day
+        when my fingers go away
+        her piolet spins & crashes
+        my echos fill the ashes
+        of any brave enough to pass us
+        & the thickle masses
+        
+        like a moth on my skin
+        that i foolishly sent to the next dimention
+
+        like a line on a leaf
+        the only thing i fear is grief
+      `,
+    },
+    {
+      text: `
+        miss, our old ramnce
+        time b4
+             b4 frogs ripped apart
+        insissions in the flesh
+        unforgiven, ourselves
+        lost b4
+             b4 dark changes
+             2 light
+      `,
+    },
+    {
+      text: `
+        my generation
+        deterioration
+        flagellation
+        abosolute condemnation
+        like every other generation
+      `,
+    },
+    {
+      text: `
+        coh benant
+        lenttenant
+        do you know what's going on
+        they're giving me a house for this
+        i think you know what's going on
+
+        the inconsevable edge
+        makes perfect sense
+        when my console love
+        dense
+        yards it's way
+        everyone else ran out of things 2 say
+        freightened of her way
+        ding day, we hate being alive
+               ofcourse you do, our little feet make on stride 
+      `,
+    },
+    {
+      text: `
+        my sense of time still's a bit off
+        all u aloff losers
+        are wirting the same stuff
+      `,
+    },
+    {
+      text: `
+        the discourse flies out
+        & we shout & we shout
+        trying to get this man owlt
+        & she pouts & she pouts
+        they're saying funny words to me
+        all those ways it was suppost to be
+        & it's strange now, the way we hear
+        reduce anyone to tears
+        ...or just their ears
+      `,
+    },
+    {
+      text: `
+        walking these steps
+        climbing this shit pryamid
+        my heads of a plate
+        i'm slightly delerious
+
+        i thought this single act
+        would last us forever
+        dose the observer 
+        is she there?
+
+        understand: there is no moments
+        there are no speed
+        you are now please
+        make a change
+      `,
+    },
+    {
+      text: `
+        this is threapy 2 me
+        writing bout the ways things r suppost 2 be
+        why can't anyone see
+        oh yeah it's just me
+          it's a pitty i'm wrong
+          u see, if everything had only
+          conforted we'd be
+          all sorted
+      `,
+    },
+    {
+      text: `
+        i can't wait to love you
+        like all those years ago
+        i can't wait to hear your heart
+        & never let you go
+
+        the sweet seldom of her touch 
+        is all i yearn to feel 
+        that endless sea & me, & my friendly eel
+      `,
+    },
+    {
+      text: `
+        livin's not just mostly wasting time
+        it's watching her pass by, that's not fine?
+        i'll let her know, 
+                              next time she's round
+
+        not particularly responsive
+        though always on,
+              are we doing anything tonite?
+        yeah, watching others
+              as they were some other time
+      `,
+    },
+    {
+      text: `
+        the heard infront the future behind
+        u think, u make love to all mandkind
+        bbut their brightness, all the beauty
+        it's too much
+        too much dressed in others
+        & packed beside you
+        you don't dare look, but they do, they do
+        pray, play for them, swag thru
+        their hands can't capture, light passes true
+
+        & your
+                the artist you are
+                                    the human becomes to you
+      `,
+    },
+    {
+      text: `
+        don't be scared friend
+        it'll pass, only when due
+        & we'll make it me & you
+        & all your fears, like time
+                          will end
+      `,
+    },
+    {
+      text: `
+        zuma mountains out of reach
+        lips gone, spoken soft
+        rocks of pure, packs that teach
+        kiss us back
+        in a cloudy peach
+      `,
+    },
+    {
+      text: `
+        "all energy flows to the whim of the great magnet
+          what a fool i am to defy him"
+      `,
+    },
+    {
+      text: `
+        walked these grounds
+        stained & again her voice
+        those sounds scar senseless
+        wonder around ponder her nose
+        what, take my mind
+        make it real
+        which am the fool not 2 feel
+        free myself distract me now
+        your astral pull
+        her deep devow
+        not there, not nothing
+        crys & froathing
+        take me please, leave my mind
+        leave me bare
+        leave me kind 
+      `,
+    },
+    {
+      text: `
+        captn on my love as i
+        left you now for good your
+        crisp packet medels i not
+        for once understood &
+        now your eyes the daggers
+        chase me where i stand
+        & whose command is this
+        sorry body under now wander
+        this is no place to loiter
+        i have some other
+        battles i've signed onto
+      `,
+    },
+    {
+      text: `
+        i lay here, straight metal
+        admiring the nelsonic beauity
+        in that fallen tree, its traditions hazel'd
+        but the worms don't know
+        we took their soil years ago
+                   it's not here tho, never known it
+                   just that strong brown haze
+                   that killed the bizzness man
+                   before the fire could spread
+                   but it jumped 
+                                & skipped 
+                              
+        to some far away land
+        & now the grounds smell funny
+        & girls & boys beg, say there's no hope
+        for the flys to carry them out high
+        times have never looked better
+                            in terms of human life
+        why don't you join? in their circles
+        too flat to roll too many to ignore
+
+        such a bore
+        such a lover letter never arrived
+        how it could've been, but i had to go & lie
+        now we're all down on the ground
+        & who am i to call out & say
+                                      "there's gold
+                                      there, keep digging"
+
+        "he's higher than us all" you snap back
+        that's true; tho i don't rekon he's on the
+        same wave-length, as me & u
+      `,
+    },
+    {
+      text: `
+        my eyes popped out my head
+        & brain splattered on the wall behind me
+      `,
+    },
+    {
+      text: `
+        my flesh betwix my skin
+        dainty fingernails push in
+        destroy the skin
+        the strings
+        you hated everything it bringed
+        repent repent
+        your miricle
+      `,
+    },
+    {
+      text: `
+        i'm sorry little one
+        i've murdered, must be a dozen
+        of your lovers; father, sister, son
+        & now my hands set upon another
+
+        i'd brought it you see
+        using coins i found left-over
+        you were never meant to taste its glee
+        or follower he to the dumpster
+
+        & now your mother & brother
+        will never again once fly
+        you my daughter, were born 2 die
+      `,
+    },
+    {
+      text: `
+        my woman's heart beats somewhere
+        mine beats alone
+        she the one im meant to be with
+        answer when she rings the phone
+        not bother with my feels
+        of lonely indision & pain
+        ring her when i have the answer
+        ring her when it's not the same
+        i fear that's the fate for me
+        no woman, no change, no time
+        i look out at the fed birds
+        & scrub the kitchen grime
+      `,
+    },
+    {
+      text: `
+        mr breck do all your characters read the same books
+        they've certainly shared looks, so i pass
+                                           i don't feel alone
+
+        mr breck do you really give a fuck
+        your tattered flags offer nowhere to look
+                                  as i cross, you case me
+
+        breck man your shoes need sweeping
+        breck girl you're better off staying in
+        my sweet breck child,
+        dont play in the road
+      `,
+    },
+    {
+      text: `
+        i don't feel old
+        i feel old, the lies i've told
+        told long ago, ask him
+        from then, do you feel old?
+        "yes" he says
+        i don't feel old
+      `,
+    },
+    {
+      text: `
+        what a purposful day
+        filled with beautiful things said & letter delivered
+        the girl with greening skin thanks the god within
+        her postman loves her most,
+        that the city forget her
+        but the birds remember & grabbed the letter
+        the only address left
+                         return to sender
+      `,
+    },
+    {
+      text: `
+        check your arm
+        how's the skin
+        salvation couldn't lie within
+        birds drop feathers
+        do they remeber
+        how it feels to die
+
+        the baby coulnd't tell
+        then he forgot to scream
+        the rest came back but we used it to eat
+
+        now we're out of drink
+        explain how to think
+        the bird remembers, now starved, it was too hard to think
+      `,
+    },
+    {
+      text: `
+        where does it go
+        what did it say
+        who's it behold to
+        will it save me?
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
