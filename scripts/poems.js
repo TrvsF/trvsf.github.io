@@ -2081,6 +2081,16 @@
         will it save me?
       `,
     },
+    {
+      text: `
+        teeth chatter, their wiring's fried
+        left in the rain, no-one could've survived
+        though i seem to be moving
+        someplace within
+        the gift of searching
+        the greatest sin
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
