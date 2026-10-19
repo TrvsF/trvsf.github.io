@@ -1628,7 +1628,7 @@
       text: `
         past the blueish glow
         a square in the dying sky, so cold
-        it's pure whites pierce any leftover soul
+        its pure whites pierce any leftover soul
         that sky with its whispering tones
         of anteraurge & a life that only
         such a man knows
@@ -1893,8 +1893,8 @@
     },
     {
       text: `
-        "all energy flows to the whim of the great magnet
-          what a fool i am to defy him"
+        "all energy flows according to the whim of the great magnet
+          what a fool i was to defy him"
       `,
     },
     {
