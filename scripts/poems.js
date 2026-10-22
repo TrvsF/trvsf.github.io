@@ -2091,6 +2091,97 @@
         the greatest sin
       `,
     },
+    {
+      text: `
+        the teacher thinks it's all been taught
+        & their students are all out of thought
+        choosing an axe, it's all for nort
+        it's all for same, your pre-disposed lane, the will of the game
+        but the pre lies within, alongside all those twins
+        that shake for fame, for that you must maintain
+        the lame, the ill, an idea of those frivolous thrills
+        an indulgence of those daydreams you must kill
+        to live the future with all your will
+        & grip a lover with all your skill
+
+        be her child for an unknown while
+        she'll be your son until a foreign battle won
+        petite war of intimancy & pain
+        with the great prize of love & gain
+
+        then you'll tell of hell & how the apple fell
+        to children of gel that live by an unknown bell
+        & if you start to believe these can't be caught
+        think of all the battles fort
+        all that's lost in a grand abort
+        your mother strung up & your father ripped apart
+      `,
+    },
+    {
+      text: `
+        the crowd of killing
+        men of war
+        women of stadning
+        oh so tall
+
+        i've opened my eyes
+        for the upteenth time
+        a counter-balance
+        your dream of mine
+      `,
+    },
+    {
+      text: `
+        an object is full
+        of souls & lust & life
+        it's curved like a knife
+        & moves like a fight
+        while it's only heard at night
+        it speaks thruout time
+        pretends that is fine
+        this gorgeous sense of mine
+        for when i lean inside 
+        & begin this preach of kind
+        those gouls run & hide
+        from what appears outside
+        let's hope they learn to glide
+        & trust ourselves to stand
+        for this place is a land
+        filled with many hands
+      `,
+    },
+    {
+      text: `
+        i move quickly & close
+        cross each corner & imagine a ghost
+        i'm missing a few thoughts yet
+        or could it be i just forget
+        those times i post in fear & haste
+        familiar walks i'm sorry to waste
+        but now without your face
+        i'm touching myself to a picture of ur waist
+        a dimented special grace
+        like a selfish embrace
+        observed by your lover 
+      `,
+    },
+    {
+      text: `
+        do u think? does it come true?
+        a cat on a table, a postcard for u
+        place it on her platter, sounds we never knew
+        knock him off with a cough & watch it all straight thru
+        help the clouds with a frown & stumble again u blew
+        the same shape from now til 10 then change the tune
+        but it lingers as a finger & coats in shades of blue
+        
+        as you move in mimicks
+        to the beat that fidgets
+        but only imagine minuites
+        
+        then go off to stiff glue
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
