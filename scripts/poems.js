@@ -2182,6 +2182,37 @@
         then go off to stiff glue
       `,
     },
+    {
+      text: `
+        can you sense it coming on
+        the steady moaning picks up speed
+        troffs are filled with feed
+        & you have the need
+        to climax & heid
+
+        while you know here u are from
+        do you know what's true
+        could these monsters be just like u
+        & have you the means to see it thru
+        this beautiful thing u want to do
+
+        & is he bound of flesh
+        would you bite til nothing left
+        could you hands grab the broken mesh
+        to fetch
+        another one crying
+      `,
+    },
+    {
+      text: `
+        can u leave, please
+        i was trying to breath
+        in grace i could do
+        with a large, constant embrace
+        i'm just left replaying
+        like a singed disgrace
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
