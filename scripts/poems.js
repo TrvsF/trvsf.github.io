@@ -2198,7 +2198,7 @@
 
         & is he bound of flesh
         would you bite til nothing left
-        could you hands grab the broken mesh
+        could ur hands grab the broken mesh
         to fetch
         another one crying
       `,
