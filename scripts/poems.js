@@ -2217,12 +2217,11 @@
       text: `
         is any part of me still there
         behind all these years & tears
-        left uncared & in fear
+        left uncared for & in fear
         from what is not here
         but may be hear, but no
         somewhere in those gears
         these waves of wind
-        nonces of ponces
         those souls of sin
         i fantisise about turning meself in
         but where would i begin
