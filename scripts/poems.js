@@ -2213,6 +2213,29 @@
         like a singed disgrace
       `,
     },
+    {
+      text: `
+        is any part of me still there
+        behind all these years & tears
+        left uncared & in fear
+        from what is not here
+        but may be hear, but no
+        somewhere in those gears
+        these waves of wind
+        nonces of ponces
+        those souls of sin
+        i fantisise about turning meself in
+        but where would i begin
+        it's better to make up games & win
+        or to pick a player & make her kin
+        but where has she been
+        what does she know, not the snow
+        the real thing with sleet & wind
+        that chimes the bell a mother would ring
+        but there's no such thing
+        it's just the end & me
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
