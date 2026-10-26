@@ -1,5 +1,42 @@
 (() => {
   "use strict";
+ 
+  const AUDIO = {
+    125: "songs/F4CE-1365.wav",
+    43: "songs/F4CE-1362.wav",
+    27: "songs/F4CE-1359.wav",
+  };
+ 
+  const playBtn = document.getElementById("play_button");
+  let sound = null;
+ 
+  function setSound(pageNumber) {
+    if (sound) sound.pause();
+    const src = AUDIO[pageNumber];
+    sound = src ? new Audio(src) : null;
+    if (sound) sound.preload = "auto";
+    if (playBtn) playBtn.style.display = sound ? "" : "none";
+  }
+ 
+  function playSound() {
+    if (!sound) return;
+    const src = sound.src;
+    sound.currentTime = 0;
+    sound.play().catch((err) => console.warn(`poems.js: couldn't play ${src}`, err));
+  }
+ 
+  if (playBtn) {
+    playBtn.setAttribute("role", "button");
+    playBtn.setAttribute("tabindex", "0");
+    playBtn.style.cursor = "pointer";
+    playBtn.addEventListener("click", playSound);
+    playBtn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        playSound();
+      }
+    });
+  }
 
   const POEMS = [
     {
@@ -2305,7 +2342,8 @@
     const poem = POEMS[n];
     renderBody(toLines(poem.text), poem.html === true);
     root.scrollTop = 0;
- 
+    setSound(n + 1);
+
     if (updateUrl) {
       const hash = `#${n + 1}`;
       try {
