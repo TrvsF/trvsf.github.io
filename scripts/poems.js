@@ -2272,6 +2272,20 @@
         it's just the end & me
       `,
     },
+    {
+      text: `
+        from the fourth day u went away
+        i knew, tho vauge
+        in your decay
+        there'd be much 2 say
+        as they
+        attempted their way
+        perhaps in fingers & nails
+        painted snails
+        pervail, someday, the weak
+        in 4 freak weeks
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
