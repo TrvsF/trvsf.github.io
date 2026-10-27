@@ -999,7 +999,7 @@
     },
     {
       text: `
-        the feeling of earth leaves wa wanting
+        the feeling of earth leaves a wanting
         & the visions of more shut in
         it's a sad loop found, born without
         everything but we have, evil while
