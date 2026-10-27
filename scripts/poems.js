@@ -2286,6 +2286,29 @@
         in 4 freak weeks
       `,
     },
+    {
+      text: `
+        punish me my lord
+        ignored like our bins
+        waste of rubble, grace of trouble
+        who knows where i've been
+        & where i'm going- that's the sin
+
+        i've heard of ariel tails spun against the wind
+        seen the block & felt the air as it courses in
+        taken the piece that robs me now
+        but gives, gives a while
+        blunt she stands with sand 4 hands
+        & falls down, while he smiles
+
+        the anger nor the pink can lift me from my perch
+        no matter the feeling i cannot rid the hurt
+        so i quell & sell myself in this cell
+        while bells fall down& drown
+        the touch, tho not much
+        can be done now
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
