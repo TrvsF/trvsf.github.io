@@ -5,6 +5,7 @@
     125: "songs/F4CE-1365.wav",
     43: "songs/F4CE-1362.wav",
     27: "songs/F4CE-1359.wav",
+    102: "songs/F4CE-1345.wav",
   };
  
   const playBtn = document.getElementById("play_button");
