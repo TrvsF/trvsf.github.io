@@ -2310,6 +2310,83 @@
         can be done now
       `,
     },
+    {
+      text: `
+        i'll take you out
+        i think, on a rink
+        fish below bob & blink
+        their gills pulse, think
+        the rink, the brink
+        the edge, the sink
+        an ocean's tide kinks
+        a rude plunder
+        an intruder under
+        sitting in silence
+        hearing the thunder    
+      `,
+    },
+    {
+      text: `
+        a cancelled feeling
+        your burning meeting
+        pause familiar greeting
+        feels like a beating
+        or something fleeting
+        where there's no netting
+      `,
+    },
+    {
+      text: `
+        i sit with knowledge palms
+        automatic legs
+        & stiff arms
+        imagine your quarms
+        your face in that place
+        nowhere near the farms
+
+        not fields of pasture
+        something that won't last u
+        akin to a zoo
+        filled with me & you
+
+        what to do who 2 call
+        what to say when i take that fall
+        where to do anew, someone tall
+        someplace far
+        but your not there
+        nowhere at all
+      `,
+    },
+    {
+      text: `
+        have i stole
+        this love of mine
+        a goal, fortold
+        in forgetting spoken tounge
+        long before in rhyme
+        as the phone rung
+        in the time, dying
+        for a taste, on your knees
+        not begging no please
+        wanting to apese
+        or freeze
+
+        senseless needs
+        your have the keys
+        the world a box
+        untie her gown
+        stand at ease
+        & thrust
+      `,
+    },
+    {
+      text: `
+        in modernirity & shame
+        i sit to play the game
+        & a smile betwix' my face
+        as i lay the blame
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
