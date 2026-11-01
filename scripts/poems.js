@@ -1292,7 +1292,7 @@
         wastes on & on to folk like you
         but see much the same & never
         fear. for the end is far, or close
-        truely duelality let you stand &
+        truely duelality lets you stand &
         die; but my home lives, as do i
       `,
     },
@@ -2322,7 +2322,7 @@
         a rude plunder
         an intruder under
         sitting in silence
-        hearing the thunder    
+        hearing the thunder
       `,
     },
     {
