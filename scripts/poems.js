@@ -1444,10 +1444,12 @@
         shot of all ambition
         thrown wayward, bright fading candles pass
         fly some time longer, don't transition, don't be crass
-        
+                                                        
         they'll love you from afar
         they'll hate from further back
         fuck the noise, avoid the tar, get yourself a snack
+                                      (prepare for attack)
+                                      (purposful this rat)
       `,
     },
     {
