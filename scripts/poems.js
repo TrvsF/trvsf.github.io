@@ -2389,6 +2389,39 @@
         as i lay the blame
       `,
     },
+    {
+      text: `
+        know patience
+        & her scars above
+        ur head ur rest
+        the best, behest
+        your cruel incision
+        a long drawn decision
+        delirious inquisition
+        precision, once
+        twice, alas the vice
+        driving god's dice
+        down 2 the ice
+      `,
+    },
+    {
+      text: `
+        if i could lift
+        in this moment of fabric
+        etch into your loom, ours
+        & hours, spent un-monouvered
+        in idel jest & boners. stag
+        unlike animals live in rags
+        similarlly still placed in tags
+        still still, not dressed at all
+        naked & all, posed 2 fall
+        though no edge in sight
+        despite your troubled might
+        there is no height, so you just smack
+        you hack, loved
+        but not like that
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
