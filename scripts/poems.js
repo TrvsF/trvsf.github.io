@@ -2399,7 +2399,7 @@
         a long drawn decision
         delirious inquisition
         precision, once
-        twice, alas the vice
+        thwice, alas the vice
         driving god's dice
         down 2 the ice
       `,
