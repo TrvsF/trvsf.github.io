@@ -2422,6 +2422,54 @@
         but not like that
       `,
     },
+    {
+      text: `
+        when awoken from drugless sleep
+        my rested bones & eyes peep
+        onto that other abstract street
+        where children play no matter the day
+        with lots 2 say, in that pure way
+        not full of unless verse
+        nor understanding of their curse
+        in boat & moat they float away
+        to a darker place, where you cannot race
+        today
+      `,
+    },
+    {
+      text: `
+        a child & his key
+        that's you & me
+        all that we will be
+        together in parts & abel
+        like a fabel, or jail
+        in cells that twitch
+        & stare, in there
+        within been sin
+        common roads, shark fin
+        with plants 2 see & be
+        you & me
+        around ur eyes 2 be free
+        within ur pants to come & see
+        forgive tea
+        forget breakfast
+        we'll starve on eachother
+        & paint like our mother
+      `,
+    },
+    {
+      text: `
+        good this night we share
+        us, the pair, & the oranges
+        don't stare, except there, be fair
+        to twin & fin no matter where been
+        in great grape goodnight we'll win
+        to begin again in stein & fie
+        to remember til we fly
+        under the beat, front to the sun
+        you & me 
+      `,
+    },
   ];
 
   const TAB_WIDTH = 4;
