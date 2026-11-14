@@ -7,6 +7,8 @@
     27: "songs/F4CE-1359.wav",
     102: "songs/F4CE-1345.wav",
     135: "songs/F4CE-1371.wav",
+    40: "songs/F4CE-40.wav",
+    104: "songs/F4CE-104.wav",
   };
  
   const playBtn = document.getElementById("play_button");
@@ -1690,6 +1692,7 @@
         or could it be, are they over there
         past the birds i never fed
         past the drums of waste
+        past mice i left in a cage;
         that time too early
         time to paste
       `,
