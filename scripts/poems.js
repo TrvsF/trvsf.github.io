@@ -2471,7 +2471,66 @@
         to begin again in stein & fie
         to remember til we fly
         under the beat, front to the sun
-        you & me 
+        you & me- forever begun
+      `,
+    },
+    {
+      text: `
+        isn't it instilled 2 worry
+        to keep a tally maybe mary
+        then float off to a sky, see-thru
+        another familiar set of eyes
+        a flurry of liues, unbornonst to the speaker
+        so you sit & think about getting weaker
+        then stand, on the brink of something deeper
+        sink & hail to the master
+        
+        but you go faster if only 2 outlast her
+        in chains you never could disipher
+        & how you see them too
+        in any old loon, the young ones 2
+        though not within you
+        no matter how long u sit & think it thru
+        so run, find the edge, & overcome
+        the everlasting battle has just begun
+      `,
+    },
+    {
+      text: `
+        meet meat it's easier on streets
+        feeling fleet u turn to ur brother
+        rather meak. stand with ur feet
+        whichever means & actions
+        make it discrete, then lead
+        or listen, your mission disission
+        nuclear fission & war
+        women in war
+        no orders at all
+        no great call, big & tall
+        just a bunch of carz
+        groups of jafars
+        hypnotized by afar
+        to begin anew
+        like me & u
+      `,
+    },
+    {
+      text: `
+        my cloud is full of pain
+        & the rain runs from tricky game
+        tell me 2 feel shame again
+        from an unknown plane
+        abstract hurt, lackluster spurts
+        & the woman made of sun
+        promised to rise from dirt
+        & protect everyone
+
+        when you come to internet terms
+        & look past the world, into the ferns
+        be sure to yern
+        head on 2 learn
+        tie urself to the stern
+                                & love
       `,
     },
   ];
