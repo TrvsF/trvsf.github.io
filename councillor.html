@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travis</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+</head>
+<body style="background-color:white;">
+    <style>
+        .breck-title {
+            margin-top: 6vh;
+            text-align: center;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 1.1;
+        }
+
+        .councillor {
+            margin-top: 7vh;
+            padding-bottom: 6em;
+            text-align: center;
+            font-size: 3vh;
+            font-weight: bold;
+            font-family: "henryblue"; /* fixed font here so it doesn't flicker like the rest of the page */
+        }
+
+        .councillor label {
+            display: block;
+            margin-bottom: 0.8em;
+        }
+
+        #postcode {
+            font: inherit;
+            width: 6em;
+            border: none;
+            border-bottom: 2px solid black;
+            border-radius: 0;
+            background: none;
+            text-align: center;
+            text-transform: uppercase;
+            outline: none;
+        }
+
+        #postcode::placeholder {
+            color: #bbb;
+        }
+
+        #find {
+            all: unset;
+            cursor: pointer;
+            margin-left: 0.5em;
+        }
+
+        #find:focus-visible {
+            text-decoration: underline;
+        }
+
+        #councillor-result {
+            margin-top: 1.5em;
+            font-weight: normal;
+        }
+
+        .cllr {
+            margin-top: 1em;
+        }
+
+        .cllr b {
+            display: block;
+        }
+
+        .cllr-source {
+            position: fixed;
+            bottom: 1em;
+            right: 1em;
+            z-index: 20;
+            font-size: 0.8em;
+        }
+    </style>
+
+    <div id="nav">
+        <a id="navel" href="index.html" style="text-decoration: none;">.ooo</a>
+    </div>
+
+    <h1 class="breck-title">SAVE BRECK RD LIBRARY</h1>
+
+    <div class="councillor">
+        <form id="councillor-form">
+            <label for="postcode">who's ur councillor?</label>
+            <input id="postcode" type="text" placeholder="L4 0TH" autocomplete="postal-code" autocapitalize="characters" spellcheck="false" maxlength="10">
+            <button id="find" type="submit">find</button>
+        </form>
+        <div id="councillor-result" aria-live="polite"></div>
+    </div>
+
+    <a class="picz-back2back" href="https://www.gov.uk/find-your-local-councillors">
+        not in liverpool?
+    </a>
+
+    <a class="cllr-source" href="https://councillors.liverpool.gov.uk/mgMemberIndex.aspx?bcr=1">
+        from the council's site, nov 2026
+    </a>
+
+    <script>
+        // liverpool city council councillors by ward, from
+        // https://councillors.liverpool.gov.uk/mgMemberIndex.aspx?FN=WARD&VW=TABLE&PIC=0 (checked 25 nov 2026)
+        // keyed by the ward's ONS code, which is what postcodes.io gives back for a postcode
+        // ward code: [ward, [[councillor, email], ...]]
+        const LIVERPOOL = "E08000012";
+        const COUNCIL_PAGE = "https://councillors.liverpool.gov.uk/mgMemberIndex.aspx?bcr=1";
+
+        // the email that opens when you click an address. {name} and {ward} get filled in
+        const SUBJECT = "Breck Road Library";
+        const MESSAGE = `Dear {name},
+
+i am a resident of {ward} & am appalled at the lack of a library in my area. Breck Road Library was my local, & a place many of my peers & myself have fond important memories of. Its seemingly permanent shuttering is a disgrace as it stands a derelict reminder of your incapability to create a communal hub for this already struggling area. There is no place for us people to communicate & learn because you are content to let it rot. Please consider putting your efforts to rectify this, i hear there is hope- please do not ignore it`;
+
+        const WARDS = {
+            "E05015277": ["Aigburth", [["Paul Ruddick", "paul.ruddick@liverpool.gov.uk"]]],
+            "E05015278": ["Allerton", [["Andrew Makinson", "Andrew.makinson@liverpool.gov.uk"]]],
+            "E05015279": ["Anfield", [["Billy Marrat", "billy.marrat@liverpool.gov.uk"], ["Lena Simic", "lena.simic@liverpool.gov.uk"]]],
+            "E05015280": ["Arundel", [["Laura Robertson-Collins", "laura.robertson-collins@liverpool.gov.uk"]]],
+            "E05015281": ["Belle Vale", [["Ruth Bennett", "ruth.bennett@liverpool.gov.uk"], ["Lynnie Hinnigan", "Lynnie.Hinnigan@liverpool.gov.uk"]]],
+            "E05015282": ["Broadgreen", [["Hayley Todd", "hayley.todd@liverpool.gov.uk"]]],
+            "E05015283": ["Brownlow Hill", [["Tom Cardwell", "tom.cardwell@liverpool.gov.uk"], ["Heather Westhead", "Heather.Westhead@liverpool.gov.uk"]]],
+            "E05015284": ["Calderstones", [["Liz Makinson", "Liz.Makinson@liverpool.gov.uk"]]],
+            "E05015285": ["Canning", [["Tomas Logan", "tomas.logan@liverpool.gov.uk"], ["Nathalie Nicholas", "nathalie.nicholas@liverpool.gov.uk"]]],
+            "E05015286": ["Childwall", [["Pat Moloney", "pat.moloney@liverpool.gov.uk"], ["Lord Mike Storey", "mike.storey@liverpool.gov.uk"]]],
+            "E05015287": ["Church", [["Carl Cashman", "carl.cashman@liverpool.gov.uk"]]],
+            "E05015288": ["City Centre North", [["Christine Banks", "christine.banks2@liverpool.gov.uk"], ["Nick Small", "nick.small@liverpool.gov.uk"]]],
+            "E05015289": ["City Centre South", [["Angela Coleman", "Angela.Coleman@liverpool.gov.uk"], ["Elizabeth Hayden", "Elizabeth.Hayden@liverpool.gov.uk"], ["Hetty Wood", "hetty.wood@liverpool.gov.uk"]]],
+            "E05015290": ["Clubmoor East", [["Richard McLean", "richard.mclean@liverpool.gov.uk"]]],
+            "E05015291": ["Clubmoor West", [["Si Jones", "si.jones@liverpool.gov.uk"]]],
+            "E05015292": ["County", [["John Jennings", "John.Jennings@liverpool.gov.uk"], ["Bernard Packenham", "Bernard.Packenham@liverpool.gov.uk"]]],
+            "E05015293": ["Croxteth", [["Anthony Lavelle", "anthony.lavelle@liverpool.gov.uk"]]],
+            "E05015294": ["Croxteth Country Park", [["Lila Bennett", "lila.bennett@liverpool.gov.uk"]]],
+            "E05015295": ["Dingle", [["Sarah Doyle", "sarah.doyle@liverpool.gov.uk"], ["Steve Munby", "stephen.munby@liverpool.gov.uk"]]],
+            "E05015296": ["Edge Hill", [["Naz Hasan", "naz.hasan@liverpool.gov.uk"]]],
+            "E05015297": ["Everton East", [["Ellie Byrne", "ellie.byrne@liverpool.gov.uk"]]],
+            "E05015298": ["Everton North", [["Portia Fahey", "portia.fahey@liverpool.gov.uk"]]],
+            "E05015299": ["Everton West", [["Jane Corbett", "jane.corbett@liverpool.gov.uk"]]],
+            "E05015300": ["Fazakerley East", [["Debbie Cooke", "debbie.cooke@liverpool.gov.uk"]]],
+            "E05015301": ["Fazakerley North", [["Declan Henry", "Declan.henry@liverpool.gov.uk"]]],
+            "E05015302": ["Fazakerley West", [["Paul Brant", "paul.brant@liverpool.gov.uk"]]],
+            "E05015303": ["Festival Gardens", [["Peter Norris", "peter.norris@liverpool.gov.uk"]]],
+            "E05015304": ["Garston", [["Sam Gorst", "sam.gorst@liverpool.gov.uk"], ["Lucy Williams", "Lucy.Williams@liverpool.gov.uk"]]],
+            "E05015305": ["Gateacre", [["Kris Brown", "kris.brown@liverpool.gov.uk"]]],
+            "E05015306": ["Grassendale & Cressington", [["Richard Clein", "richard.clein@liverpool.gov.uk"]]],
+            "E05015307": ["Greenbank Park", [["Martyn Madeley", "martyn.madeley@liverpool.gov.uk"]]],
+            "E05015308": ["Kensington & Fairfield", [["Liz Parsons", "liz.parsons1@liverpool.gov.uk"], ["Liam Robinson", "leader@liverpool.gov.uk"], ["Wendy Simon", "wendy.simon@liverpool.gov.uk"]]],
+            "E05015309": ["Kirkdale East", [["Tricia O'Brien", "tricia.obrien4@liverpool.gov.uk"]]],
+            "E05015310": ["Kirkdale West", [["Joe Hanson", "joe.hanson@liverpool.gov.uk"]]],
+            "E05015311": ["Knotty Ash & Dovecot Park", [["Harry Doyle", "Harry.Doyle@liverpool.gov.uk"]]],
+            "E05015312": ["Mossley Hill", [["Robert Mcallister-Bell", "Robert.McAllisterBell@liverpool.gov.uk"]]],
+            "E05015313": ["Much Woolton & Hunts Cross", [["Mirna Juarez", "Mirna.juarez@liverpool.gov.uk"], ["Josie Mullen", "josie.mullen@liverpool.gov.uk"]]],
+            "E05015314": ["Norris Green", [["Gerard Heffey", "Gerard.Heffey@liverpool.gov.uk"], ["Lena McCormick", "Lena.McCormick@liverpool.gov.uk"], ["Kevin Pilnick", "Kevin.Pilnick@liverpool.gov.uk"]]],
+            "E05015315": ["Old Swan East", [["Mark Johnson", "mark.johnson@liverpool.gov.uk"]]],
+            "E05015316": ["Old Swan West", [["William Shortall", "william.shortall@liverpool.gov.uk"]]],
+            "E05015317": ["Orrell Park", [["Alan Gibbons", "alan.gibbons4@liverpool.gov.uk"]]],
+            "E05015318": ["Penny Lane", [["Richard Kemp, CBE", "richard.kemp@liverpool.gov.uk"]]],
+            "E05015319": ["Princes Park", [["Lucille Harvey", "lucille.harvey@liverpool.gov.uk"]]],
+            "E05015320": ["Sandfield Park", [["Joanne Kennedy", "joanne.kennedy2@liverpool.gov.uk"]]],
+            "E05015321": ["Sefton Park", [["Katie Jarman", "katie.jarman2@liverpool.gov.uk"]]],
+            "E05015322": ["Smithdown", [["Jon Morris", "Jon.Morris@liverpool.gov.uk"], ["James Roberts", "james.roberts2@liverpool.gov.uk"]]],
+            "E05015323": ["Speke", [["Doreen Knight", "doreen.knight@liverpool.gov.uk"], ["Mary Rasmussen", "mary.rasmussen@liverpool.gov.uk"]]],
+            "E05015324": ["Springwood", [["Kimberley Berry", "Kimberley.Berry@liverpool.gov.uk"]]],
+            "E05015325": ["St Michaels", [["Thomas Crone", "Thomas.Crone@liverpool.gov.uk"]]],
+            "E05015326": ["Stoneycroft", [["Steve Radford", "steve.radford@liverpool.gov.uk"]]],
+            "E05015327": ["Toxteth", [["Rahima Farah", "Rahima.Farah@liverpool.gov.uk"]]],
+            "E05015328": ["Tuebrook Breckside Park", [["Joe Dunne", "joe.dunne@liverpool.gov.uk"]]],
+            "E05015329": ["Tuebrook Larkhill", [["Billy Lake", "billy.lake@liverpool.gov.uk"]]],
+            "E05015330": ["Vauxhall", [["Assen Christov", "assen.christov@liverpool.gov.uk"], ["Lisa Gaughan", "lisa.gaughan@liverpool.gov.uk"]]],
+            "E05015331": ["Walton", [["Sam East", "sam.east@liverpool.gov.uk"], ["Beverley Kenyon", "Beverley.Kenyon@liverpool.gov.uk"]]],
+            "E05015332": ["Waterfront North", [["Dave Hanratty", "dave.hanratty2@liverpool.gov.uk"]]],
+            "E05015333": ["Waterfront South", [["Rebecca Turner", "Rebecca.Turner@liverpool.gov.uk"]]],
+            "E05015334": ["Wavertree Garden Suburb", [["Julie Fadden", "julie.fadden@liverpool.gov.uk"]]],
+            "E05015335": ["Wavertree Village", [["Laurence Sidorczuk", "laurence.sidorczuk2@liverpool.gov.uk"]]],
+            "E05015336": ["West Derby Deysbrook", [["John Prince", "john.prince@liverpool.gov.uk"]]],
+            "E05015337": ["West Derby Leyfield", [["Finley Nolan", "Finley.Nolan@liverpool.gov.uk"]]],
+            "E05015338": ["West Derby Muirhead", [["Colette Goulding", "colette.goulding2@liverpool.gov.uk"]]],
+            "E05015339": ["Woolton Village", [["Malcolm Kelly", "Malcolm.kelly@liverpool.gov.uk"]]],
+            "E05015340": ["Yew Tree", [["Daniel Barrington", "daniel.barrington@liverpool.gov.uk"], ["Barbara Murray", "barbara.murray@liverpool.gov.uk"]]]
+        };
+
+        const form = document.getElementById("councillor-form");
+        const input = document.getElementById("postcode");
+        const result = document.getElementById("councillor-result");
+        let lookup = 0;
+
+        // fallback in case a ward code ever changes but the name doesn't
+        const simplify = (name) => String(name).toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]/g, "");
+        const WARDS_BY_NAME = {};
+        for (const code in WARDS) {
+            WARDS_BY_NAME[simplify(WARDS[code][0])] = WARDS[code];
+        }
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const id = ++lookup;
+            const postcode = input.value.toUpperCase().replace(/\s+/g, "");
+
+            if (!/^[A-Z]{1,2}[0-9][A-Z0-9]?[0-9][A-Z]{2}$/.test(postcode)) {
+                Show(Say("that's not a full postcode"));
+                return;
+            }
+
+            Show(Say("looking..."));
+
+            let response, data;
+            try {
+                response = await fetch("https://api.postcodes.io/postcodes/" + postcode);
+                data = await response.json();
+            } catch (error) {
+                if (id === lookup) {
+                    Show(Say("couldn't look that up, try again in a bit"));
+                }
+                return;
+            }
+
+            if (id !== lookup) {
+                return; // a newer search has started
+            }
+
+            if (response.status === 404) {
+                Show(Say(data && data.terminated ? "that postcode isn't used anymore" : "can't find that postcode"));
+                return;
+            }
+
+            const place = data && data.result;
+            if (!response.ok || !place) {
+                Show(Say("couldn't look that up, try again in a bit"));
+                return;
+            }
+
+            if (place.codes?.admin_district !== LIVERPOOL) {
+                Show(
+                    Say(place.postcode + " is in " + (place.admin_district || "a different council") + ", only liverpool for now"),
+                    Line(Link("find yours on gov.uk", "https://www.gov.uk/find-your-local-councillors"))
+                );
+                return;
+            }
+
+            const ward = WARDS[place.codes.admin_ward] || WARDS_BY_NAME[simplify(place.admin_ward)];
+            if (!ward) {
+                Show(
+                    Say("couldn't match " + place.postcode + " to a ward"),
+                    Line(Link("try the council's list", COUNCIL_PAGE))
+                );
+                return;
+            }
+
+            const [wardname, councillors] = ward;
+            const nodes = [Say(place.postcode + " is in " + wardname + " ward")];
+
+            for (const [name, email] of councillors) {
+                const cllr = Line(Link(email, MailTo([email], "Councillor " + Surname(name), wardname)));
+                cllr.className = "cllr";
+                const bold = document.createElement("b");
+                bold.textContent = name;
+                cllr.prepend(bold);
+                nodes.push(cllr);
+            }
+
+            if (councillors.length > 1) {
+                const surnames = councillors.map(c => Surname(c[0]));
+                const everyone = "Councillors " + surnames.slice(0, -1).join(", ") + " & " + surnames[surnames.length - 1];
+                const all = Line(Link("email them all", MailTo(councillors.map(c => c[1]), everyone, wardname)));
+                all.className = "cllr";
+                nodes.push(all);
+            }
+
+            Show(...nodes);
+        });
+
+        // "Richard Kemp, CBE" -> "Kemp", "Lord Mike Storey" -> "Storey"
+        function Surname(name) {
+            return name.replace(/,.*$/, "").trim().split(" ").pop();
+        }
+
+        function MailTo(emails, name, ward) {
+            const body = MESSAGE.split("{name}").join(name).split("{ward}").join(ward).replace(/\r?\n/g, "\r\n");
+            return "mailto:" + emails.join(",") + "?subject=" + encodeURIComponent(SUBJECT) + "&body=" + encodeURIComponent(body);
+        }
+
+        function Show(...nodes) {
+            result.replaceChildren(...nodes);
+        }
+
+        function Say(text) {
+            const div = document.createElement("div");
+            div.textContent = text;
+            return div;
+        }
+
+        function Line(...nodes) {
+            const div = document.createElement("div");
+            div.append(...nodes);
+            return div;
+        }
+
+        function Link(text, href) {
+            const a = document.createElement("a");
+            a.textContent = text;
+            a.href = href;
+            return a;
+        }
+    </script>
+    <script src="scripts/text-animate.js"></script>
+</body>
+</html>
