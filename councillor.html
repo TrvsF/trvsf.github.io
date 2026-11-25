@@ -28,30 +28,48 @@
             font-family: "henryblue"; /* fixed font here so it doesn't flicker like the rest of the page */
         }
 
-        .councillor label {
-            display: block;
+        .councillor-q {
             margin-bottom: 0.8em;
         }
 
+        #yourname,
         #postcode {
             font: inherit;
-            width: 6em;
+            width: 10em;
             border: none;
             border-bottom: 2px solid black;
             border-radius: 0;
             background: none;
             text-align: center;
-            text-transform: uppercase;
             outline: none;
         }
 
+        #yourname {
+            display: block;
+            margin: 0 auto 0.6em;
+        }
+
+        #postcode {
+            text-transform: uppercase;
+        }
+
+        #yourname::placeholder,
         #postcode::placeholder {
             color: #bbb;
+        }
+
+        /* find hangs off the right of the postcode box so both boxes line up in the middle */
+        .postcode-row {
+            position: relative;
+            display: inline-block;
         }
 
         #find {
             all: unset;
             cursor: pointer;
+            position: absolute;
+            left: 100%;
+            top: 0;
             margin-left: 0.5em;
         }
 
@@ -72,6 +90,10 @@
             display: block;
         }
 
+        .cllr a {
+            overflow-wrap: anywhere;
+        }
+
         .cllr-source {
             position: fixed;
             bottom: 1em;
@@ -89,9 +111,9 @@
 
     <div class="councillor">
         <form id="councillor-form">
-            <label for="postcode">who's ur councillor?</label>
-            <input id="postcode" type="text" placeholder="L4 0TH" autocomplete="postal-code" autocapitalize="characters" spellcheck="false" maxlength="10">
-            <button id="find" type="submit">find</button>
+            <div class="councillor-q">please enter ur details</div>
+            <input id="yourname" type="text" placeholder="Mark Nutt" aria-label="your name" autocomplete="name" maxlength="60">
+            <div class="postcode-row"><input id="postcode" type="text" placeholder="L4 0TH" aria-label="your postcode" autocomplete="postal-code" autocapitalize="characters" spellcheck="false" maxlength="10"><button id="find" type="submit">find</button></div>
         </form>
         <div id="councillor-result" aria-live="polite"></div>
     </div>
@@ -112,11 +134,39 @@
         const LIVERPOOL = "E08000012";
         const COUNCIL_PAGE = "https://councillors.liverpool.gov.uk/mgMemberIndex.aspx?bcr=1";
 
-        // the email that opens when you click an address. {name} and {ward} get filled in
+        // the email that opens when you click an address
+        // {councillor}, {name} and {postcode} get filled in (name comes from the name box)
         const SUBJECT = "Breck Road Library";
-        const MESSAGE = `Dear {name},
+        const MESSAGE = `Dear {councillor}
 
-i am a resident of {ward} & am appalled at the lack of a library in my area. Breck Road Library was my local, & a place many of my peers & myself have fond important memories of. Its seemingly permanent shuttering is a disgrace as it stands a derelict reminder of your incapability to create a communal hub for this already struggling area. There is no place for us people to communicate & learn because you are content to let it rot. Please consider putting your efforts to rectify this, i hear there is hope- please do not ignore it`;
+My full name is {name} and I live in {postcode}
+
+I am writing to formally register my disappointment at the continued closure of Breck Road Library. The library meant so much to so many in this community. It was a place where people could freely access books, computers, support services and community activities.
+
+As you will know, every council in England is required to provide a ‘comprehensive and efficient’ library service under the Localism Act 2011. It must do so in a way which meets the needs of people living, studying or working in the area, taking into account the resources available.
+
+The contextual factors affecting your constituency include:
+
+* 36.1% of Everton North households experience at least two overlapping dimensions of deprivation
+* 34% of Everton North residents aged 16 and over have no formal qualifications
+* 5.8% - 6.2% residents claiming Jobseeker's Allowance or Universal Credit while required to seek work within the Liverpool Riverside parliamentary constituency
+
+
+These are just to highlight a few of the significant barriers faced by people in your constituency.
+
+When the library closed Liverpool City Council assured our community that they would work to create alternative and accessible provision. While I appreciate the council has made efforts to provide residents with books through the Home library service this fails to acknowledge the digital and language barriers people may face to access this provision. It also fails to recognise that the many benefits for residents that attending a local library can have both physically and mentally.
+
+Liverpool City Council have also pledged to use Pride in Place funding to build a community hub. This would make a positive addition to our local community but is a suggestion that has been made without thorough community consultation and should be a decision taken by the neighbourhood Pride in Place board who will manage the funding. Other communities do not have to face choices between a community hub and a library, Both are spaces that could enrich and support our community as distinct entities.
+
+As my local representative I would like to know:
+
+1. What are you doing to ensure that Liverpool City Council carries out its statutory duty to provide our community with a well resourced and accessible local library with funding accounted for within their annual budget?
+2. What analysis and data do you have to justify that the council's current provision is meeting the needs of local residents within your constituency?
+3. Will you commit to lobbying the rest of the council on behalf of your constituents to ensure that a library is re-opened in the community as a matter of urgency?
+
+
+I look forward to hearing from you, sincerely
+{name}`;
 
         const WARDS = {
             "E05015277": ["Aigburth", [["Paul Ruddick", "paul.ruddick@liverpool.gov.uk"]]],
@@ -186,9 +236,13 @@ i am a resident of {ward} & am appalled at the lack of a library in my area. Bre
         };
 
         const form = document.getElementById("councillor-form");
+        const nameInput = document.getElementById("yourname");
         const input = document.getElementById("postcode");
         const result = document.getElementById("councillor-result");
         let lookup = 0;
+
+        // typing a name after searching still updates the emails
+        nameInput.addEventListener("input", RefreshEmails);
 
         // fallback in case a ward code ever changes but the name doesn't
         const simplify = (name) => String(name).toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]/g, "");
@@ -256,7 +310,7 @@ i am a resident of {ward} & am appalled at the lack of a library in my area. Bre
             const nodes = [Say(place.postcode + " is in " + wardname + " ward")];
 
             for (const [name, email] of councillors) {
-                const cllr = Line(Link(email, MailTo([email], "Councillor " + Surname(name), wardname)));
+                const cllr = Line(EmailLink("Press to make a Difference! (" + email + ")", [email], "Councillor " + Surname(name), place.postcode));
                 cllr.className = "cllr";
                 const bold = document.createElement("b");
                 bold.textContent = name;
@@ -267,12 +321,13 @@ i am a resident of {ward} & am appalled at the lack of a library in my area. Bre
             if (councillors.length > 1) {
                 const surnames = councillors.map(c => Surname(c[0]));
                 const everyone = "Councillors " + surnames.slice(0, -1).join(", ") + " & " + surnames[surnames.length - 1];
-                const all = Line(Link("email them all", MailTo(councillors.map(c => c[1]), everyone, wardname)));
+                const all = Line(EmailLink("email them all", councillors.map(c => c[1]), everyone, place.postcode));
                 all.className = "cllr";
                 nodes.push(all);
             }
 
             Show(...nodes);
+            RefreshEmails();
         });
 
         // "Richard Kemp, CBE" -> "Kemp", "Lord Mike Storey" -> "Storey"
@@ -280,9 +335,24 @@ i am a resident of {ward} & am appalled at the lack of a library in my area. Bre
             return name.replace(/,.*$/, "").trim().split(" ").pop();
         }
 
-        function MailTo(emails, name, ward) {
-            const body = MESSAGE.split("{name}").join(name).split("{ward}").join(ward).replace(/\r?\n/g, "\r\n");
-            return "mailto:" + emails.join(",") + "?subject=" + encodeURIComponent(SUBJECT) + "&body=" + encodeURIComponent(body);
+        function EmailLink(text, emails, councillor, postcode) {
+            const a = Link(text, "#");
+            a.dataset.emails = emails.join(",");
+            a.dataset.councillor = councillor;
+            a.dataset.postcode = postcode;
+            return a;
+        }
+
+        // (re)builds every email link's mailto: with the letter and whatever's in the name box
+        function RefreshEmails() {
+            const name = nameInput.value.trim() || "[insert name here]";
+            for (const a of result.querySelectorAll("a[data-emails]")) {
+                const body = MESSAGE.split("{councillor}").join(a.dataset.councillor)
+                    .split("{name}").join(name)
+                    .split("{postcode}").join(a.dataset.postcode)
+                    .replace(/\r?\n/g, "\r\n");
+                a.href = "mailto:" + a.dataset.emails + "?subject=" + encodeURIComponent(SUBJECT) + "&body=" + encodeURIComponent(body);
+            }
         }
 
         function Show(...nodes) {
